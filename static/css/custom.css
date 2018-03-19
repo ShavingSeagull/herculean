@@ -1,0 +1,259 @@
+@font-face {
+    font-family: life_is_okayregular;
+    src: url("fonts/LifeIsOkay.eot"); /* IE9 */
+    src: url("fonts/LifeIsOkay.eot?#iefix") format("embedded-opentype"), /* IE6-8 */
+         url("fonts/Life Is Okay.otf") format("opentype"),
+         url("fonts/life_is_okay-webfont.ttf") format("truetype"),
+         url("fonts/life_is_okay-webfont.woff") format("woff"),
+         url("fonts/life_is_okay-webfont.woff2") format("woff2");
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+section {
+    padding-bottom: 20px;
+}
+
+/* Nav */
+
+.nav a {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 18px;
+}
+
+.nav a:hover, .nav a:focus {
+    color: red !important;
+}
+
+.dropdown-menu, .dropdown-menu a {
+    background-color: #222222;
+    color: #9d9d9d !important;
+}
+
+/* Index (Home) Page Carousel */
+
+header.carousel {
+    height: 60%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Index (Home) Page */
+
+.brand-text-nav {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 24px;
+    color: red !important;
+    text-shadow: 3px 4px 2px black;
+    text-transform: uppercase;
+}
+
+.brand-header {
+    padding: 30px;
+}
+
+.brand-text-header-white,
+.brand-text-header-red,
+.brand-text-header-black {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.brand-text-header-white {
+    color: white;
+    text-shadow: 5px 7px 4px black;
+}
+
+.brand-text-header-red {
+    color: red;
+    text-shadow: 5px 7px 4px black;
+}
+
+.brand-text-header-black {
+    color: black;
+    text-shadow: 5px 7px 4px gray;
+}
+
+.brand-text,
+.brand-text-red {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 20px;
+    text-shadow: 3px 5px 4px black;
+}
+
+.brand-text {
+    color: white;
+}
+
+.brand-text-red {
+    color: red;
+}
+
+.section-bg {
+    background: url("../img/home/under-background.jpg");
+    background-size: cover;
+}
+
+.panel-heading h3 {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+}
+
+.panel-body p {
+    font-family: 'Mina', sans-serif;
+}
+
+.img-portfolio {
+    margin-bottom: 5px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+.featured-caption {
+    font-family: 'Mina', sans-serif;
+    font-weight: bold;
+}
+
+.brand-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.brand-list li {
+    padding: 10px 0 10px 16px;
+}
+
+.brand-list li::before {
+    content: "-";
+    padding-right: 8px;
+    color: red;
+    text-shadow: 3px 5px 4px black;
+}
+
+.well {
+    margin-top: 40px;
+}
+
+.footer-text {
+    font-family: 'Mina', sans-serif;
+    font-size: 20px;
+}
+
+.mobile-hidden {
+    display: none;
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* Base Page Footer Styles */
+
+footer {
+    background-color: #222;
+    padding-top: 30px;
+    margin-top: 50px;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #9d9d9d;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+footer hr {
+    border-color: #9d9d9d;
+}
+
+footer p {
+    color: #9d9d9d;
+}
+
+/* Responsive Styles */
+
+@media(min-width:767px) {
+    section {
+        margin-bottom: 80px;
+    }
+
+    .mobile-hidden {
+        display: initial;
+    }
+}
+
+@media(min-width:840px) {
+    .brand-header,
+    .brand-text-header-red {
+        font-size: 80px;
+        text-align: center;
+    }
+}
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 5px;
+    }
+
+    header.carousel .carousel {
+        height: 60%;
+    }
+}

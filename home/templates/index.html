@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block content %}
+
+  <!-- Header Carousel -->
+  <header id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <div class="fill" style="background-image:url('../../static/img/home/slide1.jpg');"></div>
+      </div>
+      <div class="item">
+        <div class="fill" style="background-image:url('../../static/img/home/slide3.jpg');"></div>
+      </div>
+      <div class="item">
+        <div class="fill" style="background-image:url('../../static/img/home/slide6.jpg');"></div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="icon-next"></span>
+    </a>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container-fluid">
+
+    <!-- Major Ranges Section -->
+    <section class="row section-bg">
+      <div class="col-lg-12">
+        <h1 class="brand-header">
+          <span class="brand-text-header-white">Want to be <span class="brand-text-header-red">Herculean</span>?</span>
+        </h1>
+      </div>
+      <div class="container">
+        <div class="col-sm-4">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h3><i class="fa fa-fw fa-check"></i> Protein</h3>
+            </div>
+            <div class="panel-body">
+              <p>Everything from premium quality tubs of Whey to protein bars for a life on-the-go. Always give your body the best chance of recovery with our range of Protein products.</p>
+              <a href="#" class="btn btn-info">View Range</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h3><i class="fa fa-fw fa-check"></i> Supplements</h3>
+            </div>
+            <div class="panel-body">
+              <p>Sometimes it just isn't possible to fulfill your nutritional requirements from diet alone. Our line of supplements will ensure you're stepping up to the plate every day of the week.</p>
+              <a href="#" class="btn btn-info">View Range</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <h3><i class="fa fa-fw fa-check"></i> Accessories</h3>
+            </div>
+            <div class="panel-body">
+              <p>It's not just about powders and pills. We stock a variety of accessories to aid with your workouts, from water bottles to heart rate monitors, we've got you covered.</p>
+              <a href="#" class="btn btn-info">View Range</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Featured Section -->
+    <section class="row">
+      <div class="col-lg-12">
+        <h2 class="brand-header">
+          <span class="brand-text-header-red">Herculean</span> <span class="brand-text-header-black">featured products</span>
+        </h2>
+      </div>
+      <div class="container">
+        <div class="col-md-4 col-sm-6">
+          <a href="#">
+            <img class="img-responsive img-portfolio img-hover" src="{% static 'img/home/bcaa.jpg' %}" alt="BCAA">
+          </a>
+          <p class="text-center featured-caption">BCAA Capules - QTY: 300</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <a href="#">
+            <img class="img-responsive img-portfolio img-hover" src="{% static 'img/home/preworkout.jpg' %}" alt="Pre-workout">
+          </a>
+          <p class="text-center featured-caption">X-Cite Pre-workout - WT: 500g</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <a href="#">
+            <img class="img-responsive img-portfolio img-hover" src="{% static 'img/home/creatine.jpg' %}" alt="Creatine">
+          </a>
+          <p class="text-center featured-caption">Creatine Monohydrate - WT: 400g</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <a href="#">
+            <img class="img-responsive img-portfolio img-hover" src="{% static 'img/home/whey.jpg' %}" alt="Whey">
+          </a>
+          <p class="text-center featured-caption">Whey Protein - WT: 1kg</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <a href="#">
+            <img class="img-responsive img-portfolio img-hover" src="{% static 'img/home/glucosamine.jpg' %}" alt="Glucosamine">
+          </a>
+          <p class="text-center featured-caption">Glucosamine Hydrochloride - QTY: 120</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <a href="#">
+            <img class="img-responsive img-portfolio img-hover" src="{% static 'img/home/rx3.jpg' %}" alt="Recovery">
+          </a>
+          <p class="text-center featured-caption">ReconstruXion Recovery - WT: 500g</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Selling Point Section -->
+    <section class="row section-bg">
+      <div class="col-lg-12">
+        <h2 class="brand-header"><span class="brand-text-header-white">Why Choose</span> <span class="brand-text-header-red">HERCULEAN</span><span class="brand-text-header-white">?</span></h2>
+      </div>
+      <div class="container">
+        <div class="col-md-6 brand-list">
+          <p class="brand-text"><span class="brand-text-red">HERCULEAN</span> beats out the competition because we offer:</p>
+          <ul class="brand-text">
+            <li>Products that will deliver results every day</li>
+            <li>The very best quality ingredients</li>
+            <li>Fast delivery options to suit any need</li>
+            <li>100% Money back guarantee if you are unhappy with a product</li>
+            <li>UK-based customer support around the clock</li>
+            <li>Regular discounts and offers</li>
+          </ul>
+        </div>
+        <div class="col-md-6 mobile-hidden">
+          <img class="img-responsive" src="{% static 'img/home/under-background2.jpg' %}" alt="image">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Registration Section -->
+    <section class="well">
+      <div class="row">
+        <div class="col-md-8">
+          <p class="text-center footer-text">Want access to the latest offers for members only? Sign up for a free account today!</p>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-lg btn-info btn-block footer-text" href="#">Sign-Up</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+{% endblock %}
