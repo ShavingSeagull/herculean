@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
+{% block page_title %}Register{% endblock %}
 {% block content %}
   <section class="container accounts-section">
     <form method="POST" action="{% url 'register' %}">

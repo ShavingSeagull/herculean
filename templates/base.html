@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>HERCULEAN</title>
+  <title>{% block page_title %}{% endblock %}</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
@@ -65,7 +65,7 @@
           </li>
           {% if user.is_authenticated %}
             <li>
-              <a href="#">Account</a>
+              <a href="{% url 'profile' %}">Account</a>
             </li>
             <li>
               <a href="{% url 'logout' %}">Log-Out</a>
@@ -84,6 +84,16 @@
     </div>
     <!-- /.container -->
   </nav>
+
+  {% if messages %}
+    <div class="container alert alert-success">
+      <div class="messages">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 
   {% block content %}
   {% endblock %}

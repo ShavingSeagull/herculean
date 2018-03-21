@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
+{% block page_title %}Login{% endblock %}
 {% block content %}
   <section class="container accounts-section">
     <form method="POST" action="{% url 'login' %}?next={{ next }}">
@@ -9,7 +10,7 @@
         <br>
         {% csrf_token %}
         {{ user_form | as_bootstrap }}
-        <p><a href="#">Forgot my password</a></p>
+        <p><a href="#" class="mina-text custom-anchor">Forgotten your password?</a></p>
         <br>
         <button type="submit" class="btn btn-info">Login</button>
       </fieldset>

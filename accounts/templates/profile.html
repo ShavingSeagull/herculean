@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page_title %}{{ user }}'s Profile{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <section class="row profile-section" id="testrow">
+    <div class="col-sm-3" id="side-menu">
+      <ul>
+        <li><a href="#">Edit Profile</a></li>
+        <li><a href="#">Order History</a></li>
+        <li><a href="#">Payment Details</a></li>
+        <li><a href="#">Delivery Address</a></li>
+        <li><a href="#">Discounts</a></li>
+        <br>
+        {% if user.is_staff %}
+          <li><a href="#">Post an Article</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="col-sm-9" id="main-area">
+
+    </div>
+  </section>
+</div>
+{% endblock %}

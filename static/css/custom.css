@@ -8,17 +8,36 @@
          url("fonts/life_is_okay-webfont.woff2") format("woff2");
 }
 
+/* General styles */
+
 html,
 body {
     height: 100%;
 }
 
 body {
-    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 50px; /* Required padding for navbar-fixed-top */
 }
 
 a, a:hover, a:focus {
     text-decoration: none;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+.mina-text {
+    font-family: Mina, sans-serif;
+}
+
+.custom-anchor,
+.custom-anchor:focus {
+    color: black;
+}
+
+.custom-anchor:hover {
+    color: red;
 }
 
 /* Nav */
@@ -135,10 +154,6 @@ header.carousel .fill {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
 }
 
-.panel-body p {
-    font-family: 'Mina', sans-serif;
-}
-
 .img-portfolio {
     margin-bottom: 5px;
 }
@@ -171,6 +186,7 @@ header.carousel .fill {
 
 .well {
     margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 .footer-text {
@@ -186,6 +202,41 @@ header.carousel .fill {
 
 .accounts-section {
     margin-top: 50px;
+}
+
+#testrow {
+    height: 100vh;
+}
+
+#side-menu {
+    height: 100%;
+    background: url("../img/home/under-background.jpg");
+    background-size: cover;
+}
+
+#main-area {
+    height: 100%;
+    background-color: white;
+}
+
+.profile-section ul {
+    padding-top: 30px;
+}
+
+.profile-section li {
+    margin-bottom: 10px;
+}
+
+.profile-section a {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-shadow: 4px 7px 4px black;
+}
+
+.profile-section a:hover,
+.profile-section a:focus {
+    color: red;
 }
 
 /* 404 Page Styles */
@@ -218,11 +269,9 @@ header.carousel .fill {
 footer {
     background-color: #222;
     padding-top: 30px;
-    margin-top: 50px;
 }
 
 footer ul {
-    list-style: none;
     margin: 0;
     padding: 0;
 }
