@@ -1,20 +1,29 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.core.exceptions import ValidationError
+from .models import Profile
 
 
 class UserLoginForm(forms.Form):
-    username_or_email = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username_or_email = forms.CharField(error_messages={'required': 'Please enter your username or email address'})
+    password = forms.CharField(
+        widget=forms.PasswordInput,
+        error_messages={'required': 'Please enter your password'}
+    )
 
 
 
 class UserRegistrationForm(UserCreationForm):
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password1 = forms.CharField(
+        label='Password',
+        widget=forms.PasswordInput,
+        error_messages={'required': 'Please enter a valid password'}
+    )
     password2 = forms.CharField(
         label='Confirm Password',
-        widget=forms.PasswordInput
+        widget=forms.PasswordInput,
+        error_messages={'required': 'Please confirm your password'}
     )
 
     class Meta:
@@ -39,3 +48,29 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords do not match")
 
         return password2
+
+
+"""
+class UserEditProfileForm(UserChangeForm):
+
+    class Meta:
+        model = User
+        fields = ('email',
+                  'first_name',
+                  'last_name',
+                  'password'
+                  )
+"""
+
+class UserForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
+
+
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('bio', 'location')

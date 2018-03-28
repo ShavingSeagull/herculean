@@ -9,7 +9,7 @@
         <p class="brand-text-black">Already got an account? <a href="{% url 'login' %}" class="brand-text-red-light-bg">Sign In</a></p>
         <br>
         {% csrf_token %}
-        {{  user_form | as_bootstrap }}
+        {{ user_form | as_bootstrap }}
         <br>
         <button type="submit" class="btn btn-info">Create account</button>
       </fieldset>

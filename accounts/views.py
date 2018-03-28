@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from django.contrib import messages, auth
 #from django.core.urlresolvers import reverse
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserChangeForm
 
 
 def index(request):
@@ -14,7 +15,6 @@ def index(request):
 def logout(request):
     """Logs the user out and redirects them back to the index page"""
     auth.logout(request)
-    #messages.success(request, 'You have successfully logged out')
     return redirect(reverse('index'))
 
 
@@ -26,7 +26,7 @@ def login(request):
             user = auth.authenticate(request.POST['username_or_email'],
                                      password=request.POST['password'])
 
-            if user and user.is_active:
+            if user and user.is_active:  # Passes the rejection message if user has had 'is_active' flag set to false
                 auth.login(request, user)
 
                 if request.GET and request.GET['next'] !='':
@@ -46,7 +46,7 @@ def login(request):
 @login_required
 def profile(request):
     """Displays the profile page of a user who is logged-in"""
-    return render(request, 'profile.html')
+    return render(request, 'profile_content.html')
 
 
 def register(request):
@@ -71,3 +71,43 @@ def register(request):
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
+
+"""
+@login_required
+def edit_profile(request):
+    Handles the edit profile form
+    if request.method == 'POST':
+        user_form = UserEditProfileForm(request.POST, instance=request.user)
+        if user_form.is_valid():
+            user_form.save()
+            return redirect(reverse('profile'))
+    else:
+        user_form = UserEditProfileForm(instance=request.user)
+
+    args = {'user_form': user_form}
+    return render(request, 'edit_profile.html', args)
+"""
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, ("Your profile was successfully updated!"))
+            return redirect(reverse('profile'))
+        else:
+            messages.error(request, ('Update unsuccessful. Please rectify the problem below'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+
+    args = {
+        'user_form': user_form,
+        'profile_form': profile_form
+    }
+    return render(request, 'edit_profile.html', args)
+

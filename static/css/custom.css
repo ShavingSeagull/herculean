@@ -27,8 +27,13 @@ ul, li {
     list-style-type: none;
 }
 
-.mina-text {
-    font-family: Mina, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Mina', sans-serif;
 }
 
 .custom-anchor,
@@ -40,7 +45,11 @@ ul, li {
     color: red;
 }
 
-/* Nav */
+.top-buffer {
+    margin-top: 40px;
+}
+
+/* Base Page */
 
 .nav a {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
@@ -54,6 +63,33 @@ ul, li {
 .dropdown-menu, .dropdown-menu a {
     background-color: #222222;
     color: #9d9d9d !important;
+}
+
+footer {
+    background-color: #222;
+    padding-top: 30px;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+footer a {
+    font-family: 'Mina', sans-serif;
+    color: #9d9d9d;
+}
+
+footer a:hover {
+    color: red;
+}
+
+footer hr {
+    border-color: #9d9d9d;
+}
+
+footer p {
+    color: #9d9d9d;
 }
 
 /* Index (Home) Page Carousel */
@@ -163,7 +199,6 @@ header.carousel .fill {
 }
 
 .featured-caption {
-    font-family: 'Mina', sans-serif;
     font-weight: bold;
 }
 
@@ -198,45 +233,53 @@ header.carousel .fill {
     display: none;
 }
 
-/* Accounts Pages (register, login, logout etc) */
+/* Accounts Pages (register, login, logout, profile etc) */
 
 .accounts-section {
     margin-top: 50px;
 }
 
-#testrow {
-    height: 100vh;
-}
-
-#side-menu {
-    height: 100%;
-    background: url("../img/home/under-background.jpg");
-    background-size: cover;
-}
-
-#main-area {
-    height: 100%;
+.main-profile-area {
     background-color: white;
 }
 
-.profile-section ul {
-    padding-top: 30px;
+.profile-section {
+    height: 100%;
+    border: 2px solid green;
 }
 
-.profile-section li {
-    margin-bottom: 10px;
+.sub-menu {
+    background: url("../img/home/under-background.jpg");
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    padding: 20px 0;
+    border: 2px solid red;
 }
 
-.profile-section a {
+.sub-menu a {
+    display: inline;
     font-family: life_is_okayregular, "Arial Black", sans-serif;
-    font-size: 20px;
+    font-size: 17px;
     color: white;
     text-shadow: 4px 7px 4px black;
+    margin: 15px;
 }
 
-.profile-section a:hover,
-.profile-section a:focus {
+.sub-menu a:hover,
+.sub-menu a:focus {
     color: red;
+}
+
+.brand-text-profile-header {
+    color: black;
+    text-shadow: 2px 3px 4px gray;
+}
+
+.profile-picture {
+    height: auto;
+    width: 200px;
+    margin-bottom: 30px;
 }
 
 /* 404 Page Styles */
@@ -264,45 +307,21 @@ header.carousel .fill {
     font-style: italic;
 }
 
-/* Base Page Footer Styles */
-
-footer {
-    background-color: #222;
-    padding-top: 30px;
-}
-
-footer ul {
-    margin: 0;
-    padding: 0;
-}
-
-footer a {
-    font-family: 'Mina', sans-serif;
-    color: #9d9d9d;
-}
-
-footer a:hover {
-    color: red;
-}
-
-footer hr {
-    border-color: #9d9d9d;
-}
-
-footer p {
-    font-family: 'Mina', sans-serif;
-    color: #9d9d9d;
-}
-
 /* Responsive Styles */
 
-@media(min-width:767px) {
-    section {
+/* Min width */
+
+@media(min-width:768px) {
+    .index-section, .accounts-section {
         margin-bottom: 80px;
     }
 
     .mobile-hidden {
         display: initial;
+    }
+
+    .profile-picture {
+        margin-bottom: 0;
     }
 }
 
@@ -314,12 +333,22 @@ footer p {
     }
 }
 
-@media(max-width:991px) {
-    .customer-img,
-    .img-related {
-        margin-bottom: 30px;
+@media(min-width: 992px) {
+    .sub-menu {
+        height: 100%;
+        padding-top: 50px;
+    }
+
+    .sub-menu a {
+        display: block;
+        text-align: left;
+        font-size: 23px;
+        margin-bottom: 10px;
+        margin-right: 0;
     }
 }
+
+/* Max width */
 
 @media(max-width:767px) {
     .img-portfolio {
@@ -328,5 +357,12 @@ footer p {
 
     header.carousel .carousel {
         height: 60%;
+    }
+}
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
     }
 }
