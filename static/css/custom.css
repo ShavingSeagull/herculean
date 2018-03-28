@@ -239,22 +239,16 @@ header.carousel .fill {
     margin-top: 50px;
 }
 
-.main-profile-area {
-    background-color: white;
-}
-
 .profile-section {
     height: 100%;
-    border: 2px solid green;
 }
 
 .sub-menu {
     background: url("../img/home/under-background.jpg");
     background-size: cover;
-    height: 100%;
     text-align: center;
     padding: 20px 0;
-    border: 2px solid red;
+
 }
 
 .sub-menu a {
@@ -334,9 +328,25 @@ header.carousel .fill {
 }
 
 @media(min-width: 992px) {
+    .page-wrap {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        min-height: 100%;
+    }
+
     .sub-menu {
-        height: 100%;
         padding-top: 50px;
+        width: 25%;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-box-ordinal-group: 1;
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
     }
 
     .sub-menu a {
@@ -345,6 +355,14 @@ header.carousel .fill {
         font-size: 23px;
         margin-bottom: 10px;
         margin-right: 0;
+    }
+
+    .main-profile-area {
+    width: 75%;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
     }
 }
 

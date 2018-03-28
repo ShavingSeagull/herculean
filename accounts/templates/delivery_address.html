@@ -1,36 +1,17 @@
-{% extends "base.html" %}
-{% block page_title %}Delivery Addresses{% endblock %}
-{% block content %}
-  <div class="container-fluid">
-    <section class="row profile-section">
-      <div class="col-md-3 sub-menu">
-        <a href="{% url 'edit' %}">Edit Profile</a>
-        <a href="#">Order History</a>
-        <a href="#">Payment Details</a>
-        <a href="#">Delivery Address</a>
-        <a href="#">Discounts</a>
-      </div>
-      <div class="col-md-9 main-profile-area">
-        <h1 class="brand-text-profile-header">Welcome to your profile, {{ user.username }}!</h1>
-        <div class="row top-buffer">
-          <figure class="col-sm-3">
-            <img src="http://via.placeholder.com/200x200" class="profile-picture img-responsive">
-          </figure>
-          <div class="col-sm-9">
-            <p><strong>Full name: </strong>{{ user.first_name }} {{ user.last_name }}</p>
-            <p><strong>Email: </strong>{{ user.email }}</p>
-            <p><strong>Date joined: </strong>{{ user.date_joined }}</p>
-            <p><strong>Location: </strong>{{ user.profile.location }}</p>
-            <br>
-            <p><strong>About me: </strong>{{ user.profile.bio }}</p>
-            <br>
-            <p><strong>Address:</strong></p>
-            <p>{{ user.profile.house_number }}</p>
-            <p>{{ user.profile.address1 }}</p>
-            <p>{{ user.profile.post_code }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+{% extends "profile.html" %}
+{% load bootstrap_tags %}
+{% block page_title %}Edit Profile{% endblock %}
+{% block profile_content %}
+  <article class="col-md-9">
+    <form method="POST" action="{% url 'edit' %}">
+      <fieldset class="form-group">
+        <legend class="brand-text-header-black">Edit your profile</legend>
+        {% csrf_token %}
+        {{ user_form | as_bootstrap }}
+        {{ profile_form | as_bootstrap }}
+        <br>
+        <button type="submit" class="btn btn-info">Save</button>
+      </fieldset>
+    </form>
+  </article>
 {% endblock %}
