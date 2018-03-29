@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'home',
     'accounts',
+
 ]
 
 MIDDLEWARE = [
@@ -101,11 +102,13 @@ AUTHENTICATION_BACKENDS = [
 
 LANGUAGE_CODE = 'en-us'
 
+DATETIME_FORMAT = 'd-m-Y'
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -116,3 +119,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

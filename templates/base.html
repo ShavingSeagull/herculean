@@ -9,6 +9,12 @@
 
   <title>{% block page_title %}{% endblock %}</title>
 
+  <!-- For IE up to IE9 -->
+  <!--[if IE]><link rel="shortcut icon" href="{% static 'img/base/logo-ico.ico' %}"><![endif]-->
+
+  <link rel="apple-touch-icon-precomposed" href="{% static 'img/base/logo-apple-touch.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/base/logo.png' %}">
+
   <!-- Bootstrap Core CSS -->
   <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
 

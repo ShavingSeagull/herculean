@@ -3,7 +3,7 @@
 {% block page_title %}Login{% endblock %}
 {% block content %}
   <section class="container accounts-section">
-    <form method="POST" action="{% url 'login' %}?next={{ next }}">
+    <form method="POST" action="{% url 'login' %}?next={{ next }}" class="col-md-7">
       <fieldset class="form-group">
         <legend class="brand-text-header-black">Login</legend>
         <p class="brand-text-black">Get the <span class="brand-text-red-light-bg">HERCULEAN</span> experience!</p>
