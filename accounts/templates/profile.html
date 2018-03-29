@@ -2,10 +2,10 @@
 {% block content %}
   <section class="page-wrap">
     <div class="col-md-3 sub-menu">
-      <a href="{% url 'edit' %}">Edit Profile</a>
+      <a href="{% url 'edit-profile' %}">Edit Profile</a>
       <a href="#">Order History</a>
       <a href="#">Payment Details</a>
-      <a href="#">Delivery Address</a>
+      <a href="{% url 'delivery-address' %}">Delivery Address</a>
       <a href="#">Discounts</a>
     </div>
     <div class="main-profile-area">

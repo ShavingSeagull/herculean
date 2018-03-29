@@ -29,11 +29,15 @@ ul, li {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 p {
     font-family: 'Mina', sans-serif;
+}
+
+button a, button a:hover, button a:focus {
+    color: white;
 }
 
 .custom-anchor,
@@ -47,6 +51,10 @@ p {
 
 .top-buffer {
     margin-top: 40px;
+}
+
+.button-spacing {
+    margin: 40px 0;
 }
 
 /* Base Page */

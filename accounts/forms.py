@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from .models import Profile
 
@@ -50,18 +50,6 @@ class UserRegistrationForm(UserCreationForm):
         return password2
 
 
-"""
-class UserEditProfileForm(UserChangeForm):
-
-    class Meta:
-        model = User
-        fields = ('email',
-                  'first_name',
-                  'last_name',
-                  'password'
-                  )
-"""
-
 class UserForm(forms.ModelForm):
 
     class Meta:
@@ -74,3 +62,16 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('bio', 'location')
+
+
+class AddressForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('house_number',
+                  'address1',
+                  'address2',
+                  'city',
+                  'county',
+                  'post_code'
+                  )

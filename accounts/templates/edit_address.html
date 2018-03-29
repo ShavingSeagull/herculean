@@ -1,14 +1,13 @@
 {% extends "profile.html" %}
 {% load bootstrap_tags %}
-{% block page_title %}Edit Profile{% endblock %}
+{% block page_title %}Edit Address{% endblock %}
 {% block profile_content %}
   <article class="col-md-9">
-    <form method="POST" action="{% url 'edit-profile' %}">
+    <form method="POST" action="{% url 'edit-address' %}">
       <fieldset class="form-group">
         <legend class="brand-text-header-black">Edit your profile</legend>
         {% csrf_token %}
-        {{ user_form | as_bootstrap }}
-        {{ profile_form | as_bootstrap }}
+        {{ address_form | as_bootstrap }}
         <br>
         <button type="submit" class="btn btn-info">Save</button>
       </fieldset>
