@@ -13,7 +13,7 @@ SECRET_KEY = 't=-ofpjnf74si15qbr#0#2qy%8t)3#tb(cpyqk-brg3i5+5^w+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '97ce9d53.ngrok.io']
 
 
 # Application definition
@@ -26,9 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
+    'django_gravatar',
     'home',
     'accounts',
-
+    'news',
 ]
 
 MIDDLEWARE = [

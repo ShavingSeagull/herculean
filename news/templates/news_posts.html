@@ -1,5 +1,41 @@
 {% extends "base.html" %}
+{% load static from staticfiles %}
+{% load gravatar %}
 {% block page_title %}News{% endblock %}
 {% block content %}
-
+  <section class="container top-buffer news-section">
+    <div>
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    </div>
+    {% for post in posts %}
+      <article class="col-md-9 col-lg-9 article-background">
+        <div class="row">
+          {% if post.image %}
+            <figure class="col-xs-0 col-sm-3 news-figure">
+              <img src="/media/{{ post.image }}" class="news-image img-responsive mobile-hidden">
+            </figure>
+          {% endif %}
+          <div class="col-xs-12 col-sm-9">
+            <h5 class="tag-headline">{{ post.tag }}
+              <h2 class="post-headline"><a href="#" class="news-anchor">{{ post.title }}</a></h2>
+            </h5>
+            <p>{{ post.content | truncatewords:40 }}</p>
+            <div class="bottom-news-buffer">
+              {% if post.author.profile.profile_pic %}
+                <img src="/media/{{ post.author.profile.profile_pic }}" class="news-profile-image img-circle">
+              {% else %}
+                <img src="{% gravatar_url post.author.email %}" class="news-profile-image img-circle">
+              {% endif %}
+              <span class="mina-text">BY {{ post.author.first_name }} | {{ post.published_date }}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+    <aside class="col-md-0 col-lg-3 news-aside-image">
+      <img src="{% static 'img/news/portrait_long.jpg' %}" class="img-responsive smallview-hidden">
+    </aside>
+  </section>
 {% endblock %}

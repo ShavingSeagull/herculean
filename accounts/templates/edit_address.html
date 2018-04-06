@@ -5,7 +5,8 @@
   <article class="col-md-9">
     <form method="POST" action="{% url 'edit-address' %}">
       <fieldset class="form-group">
-        <legend class="brand-text-header-black">Edit your profile</legend>
+        <legend class="brand-text-header-black">Edit your address</legend>
+        <p class="mandatory-text">Fields marked * are mandatory.</p>
         {% csrf_token %}
         {{ address_form | as_bootstrap }}
         <br>

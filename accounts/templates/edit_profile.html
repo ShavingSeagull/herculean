@@ -3,7 +3,7 @@
 {% block page_title %}Edit Profile{% endblock %}
 {% block profile_content %}
   <article class="col-md-9">
-    <form method="POST" action="{% url 'edit-profile' %}">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'edit-profile' %}">
       <fieldset class="form-group">
         <legend class="brand-text-header-black">Edit your profile</legend>
         {% csrf_token %}

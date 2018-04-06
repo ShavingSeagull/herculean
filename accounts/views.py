@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from django.contrib import messages, auth
-#from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
-from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserChangeForm
 
 
 def index(request):
@@ -82,15 +79,15 @@ def delivery_address(request):
 def edit_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, ("Your profile was successfully updated!"))
+            messages.success(request, "Your profile was successfully updated!")
             return redirect(reverse('profile'))
         else:
-            messages.error(request, ('Update unsuccessful. Please rectify the problem below'))
+            messages.error(request, "Update unsuccessful. Please rectify the problem below")
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
@@ -109,10 +106,10 @@ def edit_address(request):
 
         if address_form.is_valid():
             address_form.save()
-            messages.success(request, ("Your address information has been updated!"))
+            messages.success(request, "Your address information has been updated!")
             return redirect(reverse('delivery-address'))
         else:
-            messages.error(request, ("Update unsuccessful. Please rectify the problem below"))
+            messages.error(request, "Update unsuccessful. Please rectify the problem below")
     else:
         address_form = AddressForm(instance=request.user)
 

@@ -17,6 +17,7 @@ body {
 
 body {
     padding-top: 50px; /* Required padding for navbar-fixed-top */
+    overflow-x: hidden;
 }
 
 a, a:hover, a:focus {
@@ -29,7 +30,6 @@ ul, li {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
-    /*text-transform: uppercase;*/
 }
 
 p {
@@ -38,6 +38,10 @@ p {
 
 button a, button a:hover, button a:focus {
     color: white;
+}
+
+.mina-text {
+    font-family: 'Mina', sans-serif;
 }
 
 .custom-anchor,
@@ -49,12 +53,25 @@ button a, button a:hover, button a:focus {
     color: red;
 }
 
+.mandatory-text {
+    color: red;
+    margin: 17px 0;
+}
+
 .top-buffer {
     margin-top: 40px;
 }
 
 .button-spacing {
     margin: 40px 0;
+}
+
+.mobile-hidden {
+    display: none;
+}
+
+.smallview-hidden {
+    display: none;
 }
 
 /* Base Page */
@@ -237,10 +254,6 @@ header.carousel .fill {
     font-size: 20px;
 }
 
-.mobile-hidden {
-    display: none;
-}
-
 /* Accounts Pages (register, login, logout, profile etc) */
 
 .accounts-section {
@@ -249,6 +262,10 @@ header.carousel .fill {
 
 .profile-section {
     height: 100%;
+}
+
+.page-wrap {
+    min-height: 100%;
 }
 
 .sub-menu {
@@ -282,6 +299,63 @@ header.carousel .fill {
     height: auto;
     width: 200px;
     margin-bottom: 30px;
+}
+
+/* News Pages */
+
+.news-section {
+    min-height: 100%;
+    position: relative;
+}
+
+.bottom-news-buffer {
+    margin-bottom: 15px;
+}
+
+.news-image {
+    height: 200px;
+    width: 200px;
+    padding: 0;
+    border-right: 5px solid red;
+}
+
+.news-aside-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-left: 60px;
+}
+
+.news-figure {
+    padding: 0;
+}
+
+.news-profile-image {
+    height: 30px;
+    width: 30px;
+}
+
+.news-anchor {
+    color: #333;
+}
+
+.news-anchor:hover {
+    color: black;
+}
+
+.tag-headline {
+    color: red;
+    margin-top: 10px;
+}
+
+.post-headline {
+    margin: 0;
+    padding: 0 0 10px 0;
+}
+
+.article-background {
+    margin-bottom: 30px;
+    background-color: #e9ebee;
 }
 
 /* 404 Page Styles */
@@ -325,6 +399,10 @@ header.carousel .fill {
     .profile-picture {
         margin-bottom: 0;
     }
+
+    .tag-headline {
+        margin-top: 20px;
+    }
 }
 
 @media(min-width:840px) {
@@ -341,7 +419,6 @@ header.carousel .fill {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        min-height: 100%;
     }
 
     .sub-menu {
@@ -371,6 +448,16 @@ header.carousel .fill {
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;
+    }
+}
+
+@media(min-width:1200px) {
+    .bottom-news-buffer {
+        margin-bottom: 0;
+    }
+
+    .smallview-hidden {
+        display: initial;
     }
 }
 

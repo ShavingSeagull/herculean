@@ -2,3 +2,5 @@
 *.pyc
 .idea/
 .__pycache__/
+static/img/news/
+media/

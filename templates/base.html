@@ -64,7 +64,7 @@
             </ul>
           </li>
           <li>
-              <a href="#">News</a>
+              <a href="{% url 'news' %}">News</a>
           </li>
           <li>
               <a href="#">Fitness Talk</a>
@@ -91,19 +91,8 @@
     <!-- /.container -->
   </nav>
 
-  {% if messages %}
-    <div class="container alert alert-success">
-      <div class="messages">
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-
   {% block content %}
   {% endblock %}
-
 
   <!-- Footer -->
   <footer>

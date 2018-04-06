@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block page_title %}Add a Post{% endblock %}
+{% block content %}
+  <article class="container">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'add-post' %}">
+      <fieldset class="form-group">
+        <legend class="brand-text-header-black">Add a Post</legend>
+        <p>(Remember to add an image!)</p>
+        {% csrf_token %}
+        {{ post_form | as_bootstrap }}
+        <br>
+        <button type="submit" class="btn btn-info">Save</button>
+      </fieldset>
+    </form>
+  </article>
+{% endblock %}

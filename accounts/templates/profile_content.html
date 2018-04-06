@@ -1,13 +1,18 @@
 {% extends "profile.html" %}
+{% load gravatar %}
 {% block page_title %}{{ user }}'s Profile{% endblock %}
 {% block profile_content %}
   <article class="col-md-9">
     <h1 class="brand-text-profile-header">Welcome to your profile, {{ user.username }}!</h1>
     <div class="row top-buffer">
-      <figure class="col-sm-3">
-        <img src="http://via.placeholder.com/200x200" class="profile-picture img-responsive">
+      <figure class="col-sm-4">
+        {% if user.profile.profile_pic %}
+          <img src="/media/{{ user.profile.profile_pic }}" class="profile-picture img-responsive">
+        {% else %}
+          <img src="{% gravatar_url post.author.email %}" class="profile-picture">
+        {% endif %}
       </figure>
-      <div class="col-sm-9">
+      <div class="col-sm-8">
         <p><strong>Full name: </strong>{{ user.first_name }} {{ user.last_name }}</p>
         <p><strong>Email: </strong>{{ user.email }}</p>
         <p><strong>Date joined: </strong>{{ user.date_joined }}</p>

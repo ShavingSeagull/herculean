@@ -61,7 +61,7 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('bio', 'location')
+        fields = ('bio', 'location', 'profile_pic')
 
 
 class AddressForm(forms.ModelForm):
