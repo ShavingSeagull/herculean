@@ -14,14 +14,14 @@
         <div class="row">
           {% if post.image %}
             <figure class="col-xs-0 col-sm-3 news-figure">
-              <img src="/media/{{ post.image }}" class="news-image img-responsive mobile-hidden">
+              <img src="/media/{{ post.image }}" class="news-image img-responsive tablet-hidden">
             </figure>
           {% endif %}
           <div class="col-xs-12 col-sm-9">
             <h5 class="tag-headline">{{ post.tag }}
-              <h2 class="post-headline"><a href="#" class="news-anchor">{{ post.title }}</a></h2>
+              <h2 class="post-headline"><a href="{% url 'post-content' post.id %}" class="news-anchor">{{ post.title }}</a></h2>
             </h5>
-            <p>{{ post.content | truncatewords:40 }}</p>
+            <p>{{ post.content | truncatewords:20 }}</p>
             <div class="bottom-news-buffer">
               {% if post.author.profile.profile_pic %}
                 <img src="/media/{{ post.author.profile.profile_pic }}" class="news-profile-image img-circle">
@@ -35,7 +35,7 @@
       </article>
     {% endfor %}
     <aside class="col-md-0 col-lg-3 news-aside-image">
-      <img src="{% static 'img/news/portrait_long.jpg' %}" class="img-responsive smallview-hidden">
+      <img src="{% static 'img/news/portrait_long.jpg' %}" class="img-responsive smallcomp-hidden">
     </aside>
   </section>
 {% endblock %}

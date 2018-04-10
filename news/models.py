@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils import timezone
+#from django.template.defaultfilters import slugify
 from accounts.models import Profile
 
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=50)
+    #slug = models.SlugField(max_length=200, unique=True, null=True)
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
@@ -15,3 +17,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    #def save(self, *args, **kwargs):
+        #self.slug = slugify(self.title)
+        #super(Post, self).save(*args, **kwargs)

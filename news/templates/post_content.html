@@ -1,5 +1,27 @@
 {% extends "base.html" %}
+{% load gravatar %}
 {% block page_title %}{{ post.title }}{% endblock %}
 {% block content %}
-  
+  <section class="post-section-background">
+    <article class="container">
+      <div class="col-md-offset-2 col-md-8 post-background">
+        <figure class="post-header">
+          <img src="/media/{{ post.image }}" class="post-header-image img-responsive between-phone-tab-hidden">
+          <div class="post-header-title">
+            <h4><span style="color: red;">{{ post.tag }}</span></h4>
+            <h1>{{ post.title }}</h1>
+            {% if post.author.profile.profile_pic %}
+              <img src="/media/{{ post.author.profile.profile_pic }}" class="news-profile-image img-circle">
+            {% else %}
+              <img src="{% gravatar_url post.author.email %}" class="news-profile-image img-circle">
+            {% endif %}
+            <span class="mina-text">BY {{ post.author.first_name }} | {{ post.published_date }}</span>
+          </div>
+        </figure>
+        <div class="post-body">
+          <p class="post-content">{{ post.content | linebreaks }}</p>
+        </div>
+      </div>
+    </article>
+  </section>
 {% endblock %}

@@ -16,12 +16,12 @@ def get_posts(request):
     return render(request, "news_posts.html", {'posts': posts})
 
 
-def post_detail(request, pk):
+def post_content(request, pk):
     """
-
+    Function for showing the individual news item in full
     """
     post = get_object_or_404(Post, pk=pk)
-    post.views += 1
+    #post.views += 1
     post.save()
     return render(request, "post_content.html", {'post': post})
 
@@ -52,7 +52,7 @@ def add_post(request):
     return render(request, "add_post.html", args)
 
 
-def add_or_edit_post(request, pk=None):
+"""def add_or_edit_post(request, pk=None):
     post = get_object_or_404(Post, pk=pk) if pk else None
     if request.method == "POST":
         post_form = BlogPostForm(request.POST, request.FILES, instance=post)
@@ -62,4 +62,4 @@ def add_or_edit_post(request, pk=None):
             return redirect(reverse(get_posts))
     else:
         post_form = BlogPostForm(instance=post)
-    return render(request, "add_post.html", {'post_form': post_form})
+    return render(request, "add_post.html", {'post_form': post_form})"""

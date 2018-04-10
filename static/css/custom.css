@@ -66,11 +66,10 @@ button a, button a:hover, button a:focus {
     margin: 40px 0;
 }
 
-.mobile-hidden {
-    display: none;
-}
-
-.smallview-hidden {
+.mobile-hidden,
+.between-phone-tab-hidden,
+.tablet-hidden,
+.smallcomp-hidden {
     display: none;
 }
 
@@ -358,6 +357,50 @@ header.carousel .fill {
     background-color: #e9ebee;
 }
 
+.post-header {
+    position: relative;
+    margin-top: 50px;
+}
+
+.post-header-image {
+    width: 100%;
+    height: auto;
+    border: 10px double red;
+}
+
+.post-header-title {
+    /*position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;*/
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 30px;
+}
+
+.post-body {
+    padding-top: 40px;
+    margin-bottom: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+}
+
+.post-body > p {
+    padding: 0 20px 20px 20px;
+}
+
+.post-section-background {
+    background-image: url("../img/home/under-background.jpg");
+    background-size: cover;
+}
+
+.post-background {
+    /*background-color: white;*/
+}
+
 /* 404 Page Styles */
 
 .error-404 {
@@ -387,12 +430,37 @@ header.carousel .fill {
 
 /* Min width */
 
+@media(min-width:380px) {
+    /* Phones from iPhone S5 upwards taken into account. For standard phone sizes
+     (not incl Galaxy Note type phones), the size tends to max out at 375px. Added 5px for good measure.*/
+    .mobile-hidden {
+        display: initial;
+    }
+}
+
+@media(min-width:540px) {
+    .between-phone-tab-hidden {
+        display: initial;
+    }
+
+    .post-header-title {
+        position: absolute;
+        bottom: 50px;
+        left: 40px;
+        z-index: 1;
+        background-color: rgba(0,0,0,0.8);
+        color: white;
+        padding: 30px;
+        margin-right: 40px; /* Necessary to keep an edge space for long titles */
+    }
+}
+
 @media(min-width:768px) {
     .index-section, .accounts-section {
         margin-bottom: 80px;
     }
 
-    .mobile-hidden {
+    .tablet-hidden {
         display: initial;
     }
 
@@ -456,12 +524,25 @@ header.carousel .fill {
         margin-bottom: 0;
     }
 
-    .smallview-hidden {
+    .smallcomp-hidden {
         display: initial;
     }
 }
 
 /* Max width */
+
+@media(min-width: 540px) and (max-width:639px) {
+    .post-header-title {
+        position: absolute;
+        bottom: 20px;
+        left: 40px;
+        z-index: 1;
+        background-color: rgba(0,0,0,0.8);
+        color: white;
+        padding: 0 30px 30px 30px; /* Alteration to padding prevents maximum length titles overflowing on Y axis */
+        margin-right: 40px; /* Necessary to keep an edge space for long titles */
+    }
+}
 
 @media(max-width:767px) {
     .img-portfolio {
