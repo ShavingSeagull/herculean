@@ -312,8 +312,8 @@ header.carousel .fill {
 }
 
 .news-image {
-    height: 200px;
-    width: 200px;
+    height: 220px;
+    width: 220px;
     padding: 0;
     border-right: 5px solid red;
 }
@@ -369,10 +369,6 @@ header.carousel .fill {
 }
 
 .post-header-title {
-    /*position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 0;*/
     background-color: rgba(0,0,0,0.8);
     color: white;
     padding: 30px;

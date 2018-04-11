@@ -7,7 +7,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True, default="This user likes to keep an air of mystery about them.")
-    location = models.CharField(max_length=30, blank=True, null=True)
+    location = models.CharField(max_length=30, blank=True, default="???")
     profile_pic = models.ImageField(upload_to="img/profiles", blank=True, null=True)
     house_number = models.CharField(max_length=20, verbose_name='House number/name *')
     address1 = models.CharField(max_length=60, verbose_name='Street *')
