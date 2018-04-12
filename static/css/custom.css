@@ -302,6 +302,10 @@ header.carousel .fill {
 
 /* News Pages */
 
+#news-page-add-button {
+    margin-bottom: 30px;
+}
+
 .news-section {
     min-height: 100%;
     position: relative;
