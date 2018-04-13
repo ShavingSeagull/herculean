@@ -19,8 +19,12 @@
           </div>
         </figure>
         <div class="post-body">
-          <p><a href="{% url 'news' %}" class="custom-anchor"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to News</a></p>
-          <p class="post-content">{{ post.content | linebreaks }}</p>
+          <a href="{% url 'news' %}" class="custom-anchor" id="back-button"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to News</a>
+          <!-- Ensures only the original author can edit the post -->
+          {% if user == post.author %}
+            <a href="{% url 'edit-post' post.slug %}" class="btn btn-info" id="edit-button"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Post</a>
+          {% endif %}
+          <p>{{ post.content | linebreaks }}</p>
         </div>
       </div>
     </article>

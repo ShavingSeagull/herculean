@@ -30,7 +30,7 @@ def login(request):
                     next = request.GET['next']
                     return HttpResponseRedirect(next)
                 else:
-                    return redirect(reverse('profile'))
+                    return redirect(reverse('index'))
             else:
                 user_form.add_error(None, "Your username or password are incorrect")
     else:
@@ -71,11 +71,6 @@ def profile(request):
 
 
 @login_required
-def delivery_address(request):
-    return render(request, 'delivery_address.html')
-
-
-@login_required
 def edit_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
@@ -97,6 +92,11 @@ def edit_profile(request):
         'profile_form': profile_form
     }
     return render(request, 'edit_profile.html', args)
+
+
+@login_required
+def delivery_address(request):
+    return render(request, 'delivery_address.html')
 
 
 @login_required

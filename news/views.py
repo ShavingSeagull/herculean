@@ -46,10 +46,32 @@ def add_post(request):
             post_form = BlogPostForm()
     else:
         messages.error(request, "You must be a staff member to post a news item.")
-        return redirect(reverse(profile))
+        return redirect(reverse(get_posts))
 
     args = {'post_form': post_form}
     return render(request, "add_post.html", args)
+
+
+@login_required
+def edit_post(request, slug=None):
+    """
+    Function for editing a post.
+    """
+    if request.user.is_staff:
+        post = get_object_or_404(Post, slug=slug) if slug else None
+        if request.method == 'POST':
+            post_form = BlogPostForm(request.POST, request.FILES, instance=post)
+            if post_form.is_valid():
+                post = post_form.save(commit=False)
+                post.author = request.user
+                post_form.save()
+                return redirect(post_content, post.slug)
+        else:
+            post_form = BlogPostForm(instance=post)
+        return render(request, "edit_post.html", {'post_form': post_form})
+    else:
+        messages.error(request, "You have to be a member of staff to edit posts.")
+        return redirect(reverse(get_posts))
 
 
 """def add_or_edit_post(request, pk=None):

@@ -4,14 +4,18 @@
 {% block page_title %}News{% endblock %}
 {% block content %}
   <section class="container top-buffer news-section">
-    <div>
-      {% for message in messages %}
-        {{ message }}
-      {% endfor %}
-    </div>
+    {% if messages %}
+      <div class="row">
+        <div class="col-md-9 alert alert-success">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
     {% if user.is_staff %}
       <div id="news-page-add-button">
-        <a href="#" class="btn btn-info btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Add a Post</a>
+        <a href="{% url 'add-post' %}" class="btn btn-info btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Add a Post</a>
       </div>
     {% endif %}
     {% for post in posts %}

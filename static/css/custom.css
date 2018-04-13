@@ -77,11 +77,19 @@ button a, button a:hover, button a:focus {
 
 .nav a {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .nav a:hover, .nav a:focus {
     color: red !important;
+}
+
+.brand-text-nav {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 24px;
+    color: red !important;
+    text-shadow: 3px 4px 2px black;
+    text-transform: uppercase;
 }
 
 .dropdown-menu, .dropdown-menu a {
@@ -139,14 +147,6 @@ header.carousel .fill {
 
 .index-section {
     padding-bottom: 20px;
-}
-
-.brand-text-nav {
-    font-family: life_is_okayregular, "Arial Black", sans-serif;
-    font-size: 24px;
-    color: red !important;
-    text-shadow: 3px 4px 2px black;
-    text-transform: uppercase;
 }
 
 .brand-header {
@@ -381,7 +381,7 @@ header.carousel .fill {
 .post-body {
     padding-top: 40px;
     margin-bottom: 150px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     line-height: 1.6;
     background-color: white;
@@ -389,16 +389,22 @@ header.carousel .fill {
 }
 
 .post-body > p {
-    padding: 0 20px 20px 20px;
+    padding: 20px 30px 20px 30px;
+}
+
+#back-button {
+    padding-left: 15px;
+}
+
+#edit-button {
+    margin-left: 15px;
+    margin-right: 15px;
+    /*display: inline;*/
 }
 
 .post-section-background {
     background-image: url("../img/home/under-background.jpg");
     background-size: cover;
-}
-
-.post-background {
-    /*background-color: white;*/
 }
 
 /* 404 Page Styles */
@@ -471,6 +477,10 @@ header.carousel .fill {
     .tag-headline {
         margin-top: 20px;
     }
+
+    .post-body {
+        font-size: 18px;
+    }
 }
 
 @media(min-width:840px) {
@@ -482,6 +492,10 @@ header.carousel .fill {
 }
 
 @media(min-width: 992px) {
+    .nav a {
+        font-size: 18px;
+    }
+
     .page-wrap {
         display: -webkit-box;
         display: -webkit-flex;
