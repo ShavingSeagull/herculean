@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load gravatar %}
+{% load disqus_tags %}
+{% set_disqus_title post.title %}
 {% block page_title %}{{ post.title }}{% endblock %}
 {% block content %}
   <section class="post-section-background">
@@ -25,6 +27,7 @@
             <a href="{% url 'edit-post' post.slug %}" class="btn btn-info" id="edit-button"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Post</a>
           {% endif %}
           <p>{{ post.content | linebreaks }}</p>
+          <div class="disqus-comments">{% disqus_show_comments %}</div>
         </div>
       </div>
     </article>

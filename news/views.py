@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from accounts.views import profile
 from .models import Post
 from .forms import BlogPostForm
 
@@ -56,6 +55,7 @@ def add_post(request):
 def edit_post(request, slug=None):
     """
     Function for editing a post.
+    Renders the form with the current content for clarification.
     """
     if request.user.is_staff:
         post = get_object_or_404(Post, slug=slug) if slug else None
@@ -72,16 +72,3 @@ def edit_post(request, slug=None):
     else:
         messages.error(request, "You have to be a member of staff to edit posts.")
         return redirect(reverse(get_posts))
-
-
-"""def add_or_edit_post(request, pk=None):
-    post = get_object_or_404(Post, pk=pk) if pk else None
-    if request.method == "POST":
-        post_form = BlogPostForm(request.POST, request.FILES, instance=post)
-        if post_form.is_valid():
-            post = post_form.save()
-            #return redirect(post_detail, post.pk)
-            return redirect(reverse(get_posts))
-    else:
-        post_form = BlogPostForm(instance=post)
-    return render(request, "add_post.html", {'post_form': post_form})"""

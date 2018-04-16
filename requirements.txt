@@ -1,5 +1,9 @@
 Django==2.0.3
+django-disqus==0.5
 django-forms-bootstrap==3.1.0
 django-gravatar2==1.4.2
+mock==2.0.0
+pbr==4.0.2
 Pillow==5.0.0
 pytz==2018.3
+six==1.11.0

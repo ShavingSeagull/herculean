@@ -13,7 +13,7 @@ SECRET_KEY = 't=-ofpjnf74si15qbr#0#2qy%8t)3#tb(cpyqk-brg3i5+5^w+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '97ce9d53.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -25,12 +25,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'django_forms_bootstrap',
     'django_gravatar',
+    'disqus',
+    'tinymce',
+    'emoticons',
     'home',
     'accounts',
     'news',
+    'forum',
 ]
+
+DISQUS_API_KEY = 'cxtiNorxyBSBZSK5l71YpSt7q5ZApQx0kcOuLqMEmwkBKRucatU9q8pqSp2dyZgG'
+DISQUS_WEBSITE_SHORTNAME = 'herculean'
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,8 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# tinymce settings
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, "static", 'js', 'tinymce', 'tinymce.min.js')
