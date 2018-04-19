@@ -7,11 +7,13 @@ $(document).ready(function(){
     function AddRemoveClass() {
         var windowWidth = $(window).width();
 
-        if (windowWidth >= 400) {
-            $('#edit-button').addClass('pull-right').css('display', 'inline-block');
+        if (windowWidth >= 530) {
+            $('#edit-button').addClass('pull-right').css('margin', '0 15px');
+            $('#delete-button').addClass('pull-right').css('margin', '0 15px');
         }
         else {
-            $('#edit-button').removeClass('pull-right').css('display', 'inline');
+            $('#edit-button').removeClass('pull-right').css('margin', '10px 20px');
+            $('#delete-button').removeClass('pull-right').css('margin', '10px 20px');
         }
     }
 

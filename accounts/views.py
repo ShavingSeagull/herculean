@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
+from django.shortcuts import render, redirect, reverse, HttpResponseRedirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -126,9 +126,31 @@ def get_user_posts(request):
     Retrieves all post items created by the authenticated user
     and lists them 4 to a page using Paginator, from newest to oldest
     """
-    post_list = Post.objects.filter(author=request.user, published_date__lte=timezone.now()).order_by('-published_date')
-    paginator = Paginator(post_list, 4)
+    if request.user.is_staff:
+        post_list = Post.objects.filter(author=request.user, published_date__lte=timezone.now()).order_by('-published_date')
+        paginator = Paginator(post_list, 4)
 
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
-    return render(request, "post_list.html", {'posts': posts})
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+        return render(request, "post_list.html", {'posts': posts})
+    else:
+        messages.error(request, "That section is only available for staff.")
+        return redirect(reverse(profile))
+
+
+@login_required
+def delete_user_post(request, slug=None):
+    """
+    Deletes an individual post. Similar to delete view in News app,
+    but this redirects to the profile page as the action is conducted
+    from there initially.
+    """
+    if request.user.is_staff:
+        post = get_object_or_404(Post, slug=slug) if slug else None
+        post.delete()
+
+        messages.success(request, "Post deleted successfully.")
+        return redirect(reverse(get_user_posts))
+    else:
+        messages.error(request, "Only staff can delete posts.")
+        return redirect(reverse(profile))

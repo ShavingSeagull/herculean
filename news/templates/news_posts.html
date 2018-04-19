@@ -46,21 +46,21 @@
     {% endfor %}
     <div class="container">
       <div class="pagination col-xs-12">
-        <span class="step-links">
+        <span class="step-links pagination-text mina-text">
           {% if posts.has_previous %}
-            <a href="?page=1" class="mina-text custom-anchor">&laquo; first</a>
+            <a href="?page=1" class="custom-anchor">&laquo; first</a>
             <span>|</span>
-            <a href="?page={{ posts.previous_page_number }}" class="mina-text custom-anchor">previous</a>
+            <a href="?page={{ posts.previous_page_number }}" class="custom-anchor">previous</a>
           {% endif %}
 
-          <span class="current mina-text">
+          <span class="current">
             Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
           </span>
 
           {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}" class="mina-text custom-anchor">next</a>
+            <a href="?page={{ posts.next_page_number }}" class="custom-anchor">next</a>
             <span>|</span>
-            <a href="?page={{ posts.paginator.num_pages }}" class="mina-text custom-anchor">last &raquo;</a>
+            <a href="?page={{ posts.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
           {% endif %}
         </span>
       </div>

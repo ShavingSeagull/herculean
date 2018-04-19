@@ -78,3 +78,19 @@ def edit_post(request, slug=None):
     else:
         messages.error(request, "You have to be a member of staff to edit posts.")
         return redirect(reverse(get_posts))
+
+
+@login_required
+def delete_post(request, slug=None):
+    """
+    Function for deleting individual posts
+    """
+    if request.user.is_staff:
+        post = get_object_or_404(Post, slug=slug) if slug else None
+        post.delete()
+
+        messages.success(request, "Post deleted successfully.")
+        return redirect(reverse(get_posts))
+    else:
+        messages.error(request, "Only staff members can delete posts.")
+        return redirect(reverse(get_posts))
