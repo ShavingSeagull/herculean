@@ -1,7 +1,10 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from django.contrib import messages, auth
-from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
+from news.models import Post
 
 
 def index(request):
@@ -115,3 +118,17 @@ def edit_address(request):
 
     args = {'address_form': address_form}
     return render(request, 'edit_address.html', args)
+
+
+@login_required
+def get_user_posts(request):
+    """
+    Retrieves all post items created by the authenticated user
+    and lists them 4 to a page using Paginator, from newest to oldest
+    """
+    post_list = Post.objects.filter(author=request.user, published_date__lte=timezone.now()).order_by('-published_date')
+    paginator = Paginator(post_list, 4)
+
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    return render(request, "post_list.html", {'posts': posts})

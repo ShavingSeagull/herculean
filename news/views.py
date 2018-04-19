@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -9,9 +10,14 @@ from .forms import BlogPostForm
 def get_posts(request):
     """
     Gets a list of all post items and renders them in
-    descending order - most recent to oldest
+    descending order - most recent to oldest.
+    Paginator limits them to 7 per page.
     """
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    post_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    paginator = Paginator(post_list, 7)
+
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
     return render(request, "news_posts.html", {'posts': posts})
 
 

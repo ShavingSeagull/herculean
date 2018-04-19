@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 {% load gravatar %}
-{% block page_title %}News{% endblock %}
+{% block page_title %}Fitness News{% endblock %}
+
 {% block content %}
   <section class="container top-buffer news-section">
     {% if messages %}
@@ -43,8 +44,29 @@
         </div>
       </article>
     {% endfor %}
-    <aside class="col-md-0 col-lg-3 news-aside-image">
+    <div class="container">
+      <div class="pagination col-xs-12">
+        <span class="step-links">
+          {% if posts.has_previous %}
+            <a href="?page=1" class="mina-text custom-anchor">&laquo; first</a>
+            <span>|</span>
+            <a href="?page={{ posts.previous_page_number }}" class="mina-text custom-anchor">previous</a>
+          {% endif %}
+
+          <span class="current mina-text">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+          </span>
+
+          {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}" class="mina-text custom-anchor">next</a>
+            <span>|</span>
+            <a href="?page={{ posts.paginator.num_pages }}" class="mina-text custom-anchor">last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+    </div>
+    <!--<aside class="col-md-0 col-lg-3 news-aside-image">
       <img src="{% static 'img/news/portrait_long.jpg' %}" class="img-responsive smallcomp-hidden">
-    </aside>
+    </aside>-->
   </section>
 {% endblock %}

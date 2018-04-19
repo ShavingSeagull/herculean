@@ -29,12 +29,9 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'django_gravatar',
     'disqus',
-    'tinymce',
-    'emoticons',
     'home',
     'accounts',
     'news',
-    'forum',
 ]
 
 DISQUS_API_KEY = 'cxtiNorxyBSBZSK5l71YpSt7q5ZApQx0kcOuLqMEmwkBKRucatU9q8pqSp2dyZgG'
@@ -132,6 +129,3 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# tinymce settings
-TINYMCE_JS_ROOT = os.path.join(BASE_DIR, "static", 'js', 'tinymce', 'tinymce.min.js')

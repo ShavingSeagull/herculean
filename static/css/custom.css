@@ -300,6 +300,10 @@ header.carousel .fill {
     margin-bottom: 30px;
 }
 
+.pagination {
+
+}
+
 /* News Pages */
 
 #news-page-add-button {
@@ -403,7 +407,6 @@ header.carousel .fill {
 #edit-button {
     margin-left: 15px;
     margin-right: 15px;
-    /*display: inline;*/
 }
 
 .post-section-background {
