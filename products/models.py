@@ -3,7 +3,7 @@ import os
 
 CHOICES = (
     ('accessories', 'Accessories'),
-    ('amino_acids', 'Amino Acids'),
+    ('amino_acids', 'Amino-Acids'),
     ('creatine', 'Creatine'),
     ('equipment', 'Equipment'),
     ('protein', 'Protein'),
