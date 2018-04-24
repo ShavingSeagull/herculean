@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'home',
     'accounts',
     'news',
+    'products',
 ]
 
 DISQUS_API_KEY = 'cxtiNorxyBSBZSK5l71YpSt7q5ZApQx0kcOuLqMEmwkBKRucatU9q8pqSp2dyZgG'

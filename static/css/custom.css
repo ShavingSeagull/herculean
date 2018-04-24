@@ -49,7 +49,13 @@ button a, button a:hover, button a:focus {
     color: black;
 }
 
-.custom-anchor:hover {
+.custom-anchor-white,
+.custom-anchor-white:focus {
+    color: white;
+}
+
+.custom-anchor:hover,
+.custom-anchor-white:hover {
     color: red;
 }
 
@@ -68,6 +74,10 @@ button a, button a:hover, button a:focus {
 
 .pagination-text {
     font-size: 18px;
+}
+
+.white-text {
+    color: white;
 }
 
 .mobile-hidden,
@@ -200,6 +210,12 @@ header.carousel .fill {
     font-size: 20px;
     color: black;
     text-shadow: 2px 3px 4px gray;
+}
+
+.brand-text-black-no-shadow {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 20px;
+    color: black;
 }
 
 .brand-text-red-light-bg {
@@ -427,29 +443,82 @@ header.carousel .fill {
     background-size: cover;
 }
 
+/* Products page carousel */
+
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
+/* Product Pages (base page and individual items) */
+.base-bg {
+    background-image: url("../img/home/under-background.jpg");
+    background-size: cover;
+    padding-top: 20px;
+}
+
+#product-nav > a:hover,
+#product-nav > a:focus {
+    color: red;
+    background-color: #fff;
+}
+
+.caption {
+    height: 130px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    margin-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail a:hover {
+    color: red;
+}
+
+.thumbnail a,
+.thumbnail a:focus {
+    color: #337ab7;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+.products-pagination-div {
+    background-color: white;
+    border-radius: 50px;
+    padding: 15px;
+}
+
 /* 404 Page Styles */
 
 .error-404 {
     font-size: 100px;
-}
-
-/* Pricing Page Styles */
-
-.price {
-    display: block;
-    font-size: 50px;
-    line-height: 50px;
-}
-
-.price sup {
-    top: -20px;
-    left: 2px;
-    font-size: 20px;
-}
-
-.period {
-    display: block;
-    font-style: italic;
 }
 
 /* Responsive Styles */
