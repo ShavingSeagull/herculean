@@ -40,6 +40,3 @@ def upload_image(instance, filename):
 class Image(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=upload_image)
-
-# class Image(models.Model):
-#     image = models.ImageField(upload_to=upload_image)

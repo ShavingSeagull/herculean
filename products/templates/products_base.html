@@ -6,13 +6,21 @@
       <div class="row">
         <section class="col-md-3">
           <p class="brand-text-red" style="font-size: 24px;">Product Range</p>
+          <div class="list-group search-box">
+            <form action="{% url 'search' %}" method="GET">
+              <input type="text" name="q" placeholder="Search">
+              <button type="submit"><i class="fa fa-search fa-lg"></i></button>
+            </form>
+          </div>
           <div class="list-group" id="product-nav">
-            <a href="#" class="list-group-item brand-text-black-no-shadow">Protein</a>
-            <a href="#" class="list-group-item brand-text-black-no-shadow">Creatine</a>
-            <a href="#" class="list-group-item brand-text-black-no-shadow">Amino Acids</a>
-            <a href="#" class="list-group-item brand-text-black-no-shadow">Vitamins & Supplements</a>
-            <a href="#" class="list-group-item brand-text-black-no-shadow">Accessories</a>
-            <a href="#" class="list-group-item brand-text-black-no-shadow">Equipment</a>
+            {% with request.resolver_match.url_name as url_name %}
+              <a href="{% url 'protein' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'protein' %}active-link{% endif %}">Protein</a>
+              <a href="{% url 'creatine' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'creatine' %}active-link{% endif %}">Creatine</a>
+              <a href="{% url 'amino_acids' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'amino_acids' %}active-link{% endif %}">Amino Acids</a>
+              <a href="{% url 'supplements' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'supplements' %}active-link{% endif %}">Vitamins & Supplements</a>
+              <a href="{% url 'accessories' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'accessories' %}active-link{% endif %}">Accessories</a>
+              <a href="{% url 'equipment' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'equipment' %}active-link{% endif %}">Equipment</a>
+            {% endwith %}
           </div>
         </section>
         <div class="col-md-9">

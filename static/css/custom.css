@@ -465,10 +465,22 @@ header.carousel .fill {
     padding-top: 20px;
 }
 
-#product-nav > a:hover,
-#product-nav > a:focus {
+.active-link,
+.active-link:hover {
+    color: red !important;
+    cursor: default;
+    background-color: #fff !important;
+}
+
+#product-nav > a:hover {
     color: red;
-    background-color: #fff;
+}
+
+.search-box > form > input,
+.search-box > form > button {
+    border-radius: 20px;
+    padding: 5px;
+    outline: none;
 }
 
 .caption {

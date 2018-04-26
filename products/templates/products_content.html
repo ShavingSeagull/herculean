@@ -1,8 +1,9 @@
 {% extends "products_base.html" %}
+{% load staticfiles %}
 {% block page_title %}{{ product.choice }}{% endblock %}
 
 {% block product_content %}
-  <div class="row carousel-holder between-phone-tab-hidden">
+  <section class="row carousel-holder between-phone-tab-hidden">
     <div class="col-md-12">
       <div id="popular-product-carousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -12,13 +13,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="item active">
-            <img class="slide-image" src="http://placehold.it/800x300" alt="">
+            <img class="slide-image" src="{% static 'img/products/product_range.png' %}" alt="">
           </div>
           <div class="item">
-            <img class="slide-image" src="http://placehold.it/800x300" alt="">
+            <img class="slide-image" src="{% static 'img/products/dumbbell_rack.jpg' %}" alt="">
           </div>
           <div class="item">
-            <img class="slide-image" src="http://placehold.it/800x300" alt="">
+            <img class="slide-image" src="{% static 'img/products/accessories.jpg' %}" alt="">
           </div>
         </div>
         <a class="left carousel-control" href="#popular-product-carousel" data-slide="prev">
@@ -29,11 +30,11 @@
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="row">
+  <section class="row">
   {% for product in products %}
-    <div class="col-sm-6 col-md-4">
+    <article class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="/media/{{ product.image.image }}" alt="Product Image">
         <div class="caption">
@@ -51,27 +52,29 @@
           </p>
         </div>
       </div>
-    </div>
+    </article>
   {% endfor %}
-  </div>
+  </section>
 
-  <div class="pagination products-pagination-div">
-    <span class="step-links mina-text pagination-text">
-      {% if products.has_previous %}
-        <a href="?page=1" class="custom-anchor">&laquo; first</a>
-        <span>|</span>
-        <a href="?page={{ products.previous_page_number }}" class="custom-anchor">previous</a>
-      {% endif %}
+  <div class="text-center">
+    <div class="pagination products-pagination-div">
+      <span class="step-links mina-text pagination-text">
+        {% if products.has_previous %}
+          <a href="?page=1&q={{ request.GET.q }}" class="custom-anchor">&laquo; first</a>
+          <span>|</span>
+          <a href="?page={{ products.previous_page_number }}&q={{ request.GET.q }}" class="custom-anchor">previous</a>
+        {% endif %}
 
-      <span class="current">
-        Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        <span class="current">
+          Page {{ products.number }} of {{ products.paginator.num_pages }}.
+        </span>
+
+        {% if products.has_next %}
+          <a href="?page={{ products.next_page_number }}&q={{ request.GET.q }}" class="custom-anchor">next</a>
+          <span>|</span>
+          <a href="?page={{ products.paginator.num_pages }}&q={{ request.GET.q }}" class="custom-anchor">last &raquo;</a>
+        {% endif %}
       </span>
-
-      {% if products.has_next %}
-        <a href="?page={{ products.next_page_number }}" class="custom-anchor">next</a>
-        <span>|</span>
-        <a href="?page={{ products.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
-      {% endif %}
-    </span>
+    </div>
   </div>
 {% endblock %}
