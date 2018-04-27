@@ -26,7 +26,6 @@ def post_content(request, slug):
     Function for showing the individual news item in full
     """
     post = get_object_or_404(Post, slug=slug)
-    #post.views += 1
     post.save()
     return render(request, "post_content.html", {'post': post})
 

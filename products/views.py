@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.urls import resolve
 from .models import Product
@@ -32,3 +32,13 @@ def product_search(request):
     page = request.GET.get('page')
     products = paginator.get_page(page)
     return render(request, "products_content.html", {'products': products})
+
+
+def product_item(request, pk):
+    """
+    Manages the in-depth view of an individual product.
+    """
+    product = get_object_or_404(Product, pk=pk)
+    product.save()
+    return render(request, "product_item.html", {"product": product})
+

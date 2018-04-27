@@ -1,0 +1,86 @@
+{% extends "products_base.html" %}
+{% block page_title %}{{ product.name }}{% endblock %}
+
+{% block product_content %}
+
+  <section>
+    <div class="row">
+      <div class="thumbnail col-md-12">
+        <img class="img-responsive" src="/media/{{ product.image.image }}" alt="Product Image">
+        <div class="caption-full">
+          <h2>{{ product.name }}</h2>
+          <h4>£{{ product.price }}</h4>
+          <p>{{ product.description }}</p>
+        </div>
+        <div class="ratings">
+          <p>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="mina-text" style="color: black;">4.0 stars</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default row">
+      <div class="panel-heading">
+        <h4>Product Reviews</h4>
+      </div>
+
+      <div id="review-section">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Review Title that is really super incredibly long like omg dude what the hell</h4>
+            <div class="review-stars">
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>
+            </div>
+            <p>This product was great in terms of quality. I would definitely buy another!</p>
+            <small class="text-muted">Posted by User on 3/7/18</small>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            Anonymous
+            <span class="pull-right">12 days ago</span>
+            <p>I've already ordered another one!</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            Anonymous
+            <span class="pull-right">15 days ago</span>
+            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <a class="btn btn-info">Leave a Review</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

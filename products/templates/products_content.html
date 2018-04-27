@@ -1,6 +1,6 @@
 {% extends "products_base.html" %}
 {% load staticfiles %}
-{% block page_title %}{{ product.choice }}{% endblock %}
+{% block page_title %}Product Range{% endblock %}
 
 {% block product_content %}
   <section class="row carousel-holder between-phone-tab-hidden">
@@ -38,7 +38,7 @@
       <div class="thumbnail">
         <img src="/media/{{ product.image.image }}" alt="Product Image">
         <div class="caption">
-          <h4><a href="#">{{ product.name }}</a></h4>
+          <h4><a href="{% url 'product-item' product.id %}">{{ product.name }}</a></h4>
           <h4 class="">£{{ product.price }}</h4>
           <p>{{ product.description | truncatewords:15 }}</p>
         </div>
