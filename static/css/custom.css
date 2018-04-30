@@ -527,7 +527,11 @@ header.carousel .fill {
     padding: 15px;
 }
 
-#review-section {
+#item-description {
+    padding: 20px;
+}
+
+#item-review {
     padding: 20px;
 }
 

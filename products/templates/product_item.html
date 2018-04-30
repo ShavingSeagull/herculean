@@ -6,21 +6,23 @@
   <section>
     <div class="row">
       <div class="thumbnail col-md-12">
-        <img class="img-responsive" src="/media/{{ product.image.image }}" alt="Product Image">
-        <div class="caption-full">
-          <h2>{{ product.name }}</h2>
-          <h4>£{{ product.price }}</h4>
-          <p>{{ product.description }}</p>
-        </div>
-        <div class="ratings">
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star-empty"></span>
-            <span class="mina-text" style="color: black;">4.0 stars</span>
-          </p>
+        <div id="item-description">
+          <img class="img-responsive" src="/media/{{ product.image.image }}" alt="Product Image">
+          <div class="caption-full">
+            <h2>{{ product.name }}</h2>
+            <h4>£{{ product.price }}</h4>
+            <p>{{ product.description }}</p>
+          </div>
+          <div class="ratings">
+            <p>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>
+              <span class="mina-text" style="color: black;">4.0 stars</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -30,7 +32,7 @@
         <h4>Product Reviews</h4>
       </div>
 
-      <div id="review-section">
+      <div id="item-review">
         <div class="row">
           <div class="col-md-12">
             <h4>Review Title that is really super incredibly long like omg dude what the hell</h4>

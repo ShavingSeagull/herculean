@@ -10,7 +10,7 @@ def products(request):
     and displays them.
     """
     current_url = resolve(request.path_info).url_name
-    product_list = Product.objects.filter(choice=current_url)
+    product_list = Product.objects.filter(choice=current_url).order_by('name')
 
     paginator = Paginator(product_list, 6)
     page = request.GET.get('page')
