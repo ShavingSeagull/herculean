@@ -68,6 +68,10 @@ button a, button a:hover, button a:focus {
     margin-top: 40px;
 }
 
+.bottom-buffer {
+    margin-bottom: 40px;
+}
+
 .button-spacing {
     margin: 40px 0;
 }
@@ -429,7 +433,7 @@ header.carousel .fill {
     padding: 0 20px;
 }
 
-#back-button {
+.back-button {
     padding-left: 15px;
 }
 

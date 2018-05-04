@@ -44,6 +44,7 @@ def add_post(request):
                 post = post_form.save(commit=False)
                 post.author = request.user
                 post_form.save()
+
                 messages.success(request, "News item posted successfully!")
                 return redirect(reverse(get_posts))
         else:

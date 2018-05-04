@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block page_title %}Edit a Review{% endblock %}
+
+{% block content %}
+
+  <article class="container top-buffer">
+    <form method="POST">
+      <fieldset class="form-group">
+        <legend class="brand-text-header-black">Edit the Review</legend>
+        {% csrf_token %}
+        {{ review_form | as_bootstrap }}
+        <br>
+        <button type="submit" class="btn btn-info">Save</button>
+      </fieldset>
+    </form>
+  </article>
+
+{% endblock %}

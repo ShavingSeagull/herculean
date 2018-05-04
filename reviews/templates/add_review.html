@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
-{% block page_title %}Add a Post{% endblock %}
+{% block page_title %}Add a Review{% endblock %}
+
 {% block content %}
+
   <article class="container top-buffer">
-    <form method="POST" enctype="multipart/form-data" action="{% url 'add-post' %}">
+    <form method="POST" action="{% url 'add-review' product.id %}">
       <fieldset class="form-group">
-        <legend class="brand-text-header-black">Add a Post</legend>
-        <p>(Remember to add an image!)</p>
+        <legend class="brand-text-header-black">Add a Review</legend>
         {% csrf_token %}
-        {{ post_form | as_bootstrap }}
+        {{ review_form | as_bootstrap }}
         <br>
         <button type="submit" class="btn btn-info bottom-buffer">Save</button>
       </fieldset>
     </form>
   </article>
+
 {% endblock %}

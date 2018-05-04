@@ -18,6 +18,21 @@ def products(request):
     return render(request, "products_content.html", {'products': products})
 
 
+def products_all(request):
+    """
+    Exists to show all products if someone enters
+    'products/' into the address bar. There is no link
+    for this on the site, but this view will circumvent
+    any hard input from curious users.
+    """
+    product_list = Product.objects.all().order_by('name')
+
+    paginator = Paginator(product_list, 6)
+    page = request.GET.get('page')
+    products = paginator.get_page(page)
+    return render(request, "products_content.html", {'products': products})
+
+
 def product_search(request):
     """
     View for searching products by name.

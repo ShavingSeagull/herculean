@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load gravatar %}
+{% block page_title %}{{ review.title }}{% endblock %}
+
+{% block content %}
+
+  <section class="post-section-background">
+    <article class="container">
+      <div class="col-md-offset-2 col-md-8 post-background">
+        <figure class="post-header">
+          <div class="post-header-title">
+            <h1>{{ review.title }}</h1>
+          </div>
+        </figure>
+        <div class="post-body">
+          <a href="#" class="btn btn-info custom-anchor"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to Reviews</a>
+          <p>{{ review.content | linebreaks }}</p>
+          {% if review.author.profile.profile_pic %}
+            <img src="/media/{{ review.author.profile.profile_pic }}" class="news-profile-image img-circle">
+          {% else %}
+            <img src="{% gravatar_url review.author.email %}" class="news-profile-image img-circle">
+          {% endif %}
+          <small class="mina-text text-muted">Posted by {{ review.author }} on {{ review.created_date }}</small>
+        </div>
+      </div>
+    </article>
+  </section>
+
+{% endblock %}

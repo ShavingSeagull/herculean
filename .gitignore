@@ -1,5 +1,6 @@
 *.sqlite3
 *.pyc
+TODO.txt
 .idea/
 .__pycache__/
 migrations/
