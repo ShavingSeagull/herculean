@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'news',
     'products',
     'reviews',
+    'cart',
 ]
 
 DISQUS_API_KEY = 'cxtiNorxyBSBZSK5l71YpSt7q5ZApQx0kcOuLqMEmwkBKRucatU9q8pqSp2dyZgG'
@@ -64,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'cart.contexts.cart_contents',
             ],
         },
     },

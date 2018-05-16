@@ -11,7 +11,17 @@
           <div class="caption-full">
             <h2>{{ product.name }}</h2>
             <h4>£{{ product.price }}</h4>
-            <p>{{ product.description }}</p>
+            <form method="post" action="{% url 'add-to-cart' product.id %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name='quantity' type="hidden" value="1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
+                    </span>
+                </div>
+            </form>
+{#            <a href="{% url 'add-to-cart' product.id %}" class="btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>#}
+            <p class="top-buffer">{{ product.description }}</p>
           </div>
           <div class="ratings">
             <p>

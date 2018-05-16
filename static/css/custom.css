@@ -76,6 +76,11 @@ button a, button a:hover, button a:focus {
     margin: 40px 0;
 }
 
+.metal-bg {
+    background-image: url("../img/home/under-background.jpg");
+    background-size: cover;
+}
+
 .pagination-text {
     font-size: 18px;
 }
@@ -380,7 +385,7 @@ header.carousel .fill {
 }
 
 .news-anchor:hover {
-    color: black;
+    color: red;
 }
 
 .tag-headline {
@@ -511,12 +516,12 @@ header.carousel .fill {
     padding: 0;
 }
 
-.thumbnail a:hover {
+.product-thumbnail a:hover {
     color: red;
 }
 
-.thumbnail a,
-.thumbnail a:focus {
+.product-thumbnail a,
+.product-thumbnail a:focus {
     color: #337ab7;
 }
 
@@ -545,6 +550,68 @@ header.carousel .fill {
     margin-bottom: 15px;
 }
 
+/* Cart Pages */
+
+.cart-section {
+    background-color: white;
+    padding-bottom: 15px;
+    border-radius: 5px;
+}
+
+.cart-background {
+    display: flex;
+    min-height: 100%;
+    padding-top: 50px;
+}
+
+.promo-code {
+    border: 2px solid #eee;
+    padding: 20px;
+}
+
+.promo-code > input {
+    padding: 5px;
+    font-family: 'Mina', sans-serif;
+}
+
+.promo-header {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.btn-circle {
+    border-radius: 50%;
+}
+
+#shipping {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+#total {
+    border-top: 6px double #eee;
+    padding-top: 10px;
+}
+
+.cart-image {
+    width: 100px;
+    height: auto;
+}
+
+.cart-quantity {
+    width: 60px !important;
+}
+
+.cart-buttons {
+    display: inline-block;
+}
+
+/*.promo-code > label {
+    display: block;
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+    font-size: 20px;
+    color: #333
+}*/
 
 /* 404 Page Styles */
 
@@ -665,6 +732,12 @@ header.carousel .fill {
 
 /* Max width */
 
+@media(min-width: 350px) and (max-width: 767px) {
+    .promo-code {
+        width: 70%;
+    }
+}
+
 @media(min-width: 540px) and (max-width:639px) {
     .post-header-title {
         position: absolute;
@@ -685,6 +758,13 @@ header.carousel .fill {
 
     header.carousel .carousel {
         height: 60%;
+    }
+
+    #cart-total {
+        float: right;
+        margin-top: 30px;
+        width: 160px;
+        /*padding-right: 50px;*/
     }
 }
 
