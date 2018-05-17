@@ -10,28 +10,33 @@
       <h3>Your Cart</h3>
       <hr>
 
+{#      <div class="row bottom-buffer">#}
+{#        <h4 class="col-xs-4 col-md-offset-1 col-md-4">Product</h4>#}
+{#        <h4 class="col-xs-4 col-md-3">Quantity</h4>#}
+{#        <h4 class="col-xs-4 col-md-4">Price</h4>#}
+{#      </div>#}
+
       <div class="row bottom-buffer">
-        <h4 class="col-xs-4 col-md-offset-1 col-md-4">Product</h4>
-        <h4 class="col-xs-4 col-md-3">Quantity</h4>
-        <h4 class="col-xs-4 col-md-4">Price</h4>
+        <h4 class="col-xs-4">Product</h4>
+        <h4 class="col-xs-4">Quantity</h4>
+        <h4 class="col-xs-4">Price</h4>
       </div>
 
       {% for item in cart_items %}
         <div class="row">
-{#          <div><i class="fa fa-times-circle float-left" aria-hidden="true"></i></div>#}
-          <div class="col-xs-2"><img src="/media/{{ item.product.image.image }}" class="cart-image img-responsive" /></div>
+          <div class="col-xs-2" id="cart-image"><img src="/media/{{ item.product.image.image }}" class="cart-image img-responsive" /></div>
           <div class="col-xs-2"><p style="font-size: 16px;"><strong>{{ item.product.name }}</strong></p></div>
-          <form method="POST" action="{% url 'adjust-cart' item.product.id %}" class="col-xs-offset-1 col-xs-2">
+          <form method="POST" action="{% url 'adjust-cart' item.product.id %}" class="col-xs-4" id="quantity-form">
             {% csrf_token %}
             <div class="form-group">
               <div class="input-group">
-                <a href="#" class="btn btn-danger cart-buttons"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 <input name="quantity" type="number" min="0" max="999" value="{{ item.quantity }}" class="form-control cart-quantity">
                 <button type="submit" class="btn btn-info cart-buttons"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                <a href="#" class="btn btn-danger cart-buttons"><i class="fa fa-trash" aria-hidden="true"></i></a>
               </div>
             </div>
           </form>
-          <div class="col-xs-offset-1 col-xs-1" style="font-size: 16px;">£{{ item.item_total }}</div>
+          <div class="col-xs-4" style="font-size: 16px;">£{{ item.item_total }}</div>
         </div>
         <hr>
       {% endfor %}
@@ -47,7 +52,7 @@
 {#          </form>#}
             <div class="promo-code">
               <h3 class="promo-header">Have A Promo Code?</h3>
-              <input type="text" placeholder="Enter Code" />
+              <input type="text" class="promo-input" placeholder="Enter Code" />
               <a href="#" class="btn btn-info btn-circle"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>

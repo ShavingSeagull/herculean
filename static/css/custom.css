@@ -96,6 +96,10 @@ button a, button a:hover, button a:focus {
     display: none;
 }
 
+.mobile-invisible {
+    visibility: hidden;
+}
+
 /* Base Page */
 
 .nav a {
@@ -562,6 +566,7 @@ header.carousel .fill {
     display: flex;
     min-height: 100%;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .promo-code {
@@ -577,6 +582,10 @@ header.carousel .fill {
 .promo-header {
     margin-top: 0;
     padding-top: 0;
+}
+
+.promo-input {
+    margin-bottom: 5px;
 }
 
 .btn-circle {
@@ -598,12 +607,17 @@ header.carousel .fill {
     height: auto;
 }
 
+#cart-image {
+    display: none;
+}
+
 .cart-quantity {
     width: 60px !important;
 }
 
 .cart-buttons {
-    display: inline-block;
+    display: block;
+    width: 60px;
 }
 
 /*.promo-code > label {
@@ -626,7 +640,8 @@ header.carousel .fill {
 @media(min-width:380px) {
     /* Phones from iPhone S5 upwards taken into account. For standard phone sizes
      (not incl Galaxy Note type phones), the size tends to max out at 375px. Added 5px for good measure.*/
-    .mobile-hidden {
+    .mobile-hidden,
+    .mobile-invisible {
         display: initial;
     }
 
@@ -649,6 +664,17 @@ header.carousel .fill {
         color: white;
         padding: 30px;
         margin-right: 40px; /* Necessary to keep an edge space for long titles */
+    }
+}
+
+@media(min-width: 557px) {
+    #cart-image {
+        display: initial;
+    }
+
+    .cart-buttons {
+        display: inline-block;
+        width: initial;
     }
 }
 
