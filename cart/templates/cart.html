@@ -10,12 +10,6 @@
       <h3>Your Cart</h3>
       <hr>
 
-{#      <div class="row bottom-buffer">#}
-{#        <h4 class="col-xs-4 col-md-offset-1 col-md-4">Product</h4>#}
-{#        <h4 class="col-xs-4 col-md-3">Quantity</h4>#}
-{#        <h4 class="col-xs-4 col-md-4">Price</h4>#}
-{#      </div>#}
-
       <div class="row bottom-buffer">
         <h4 class="col-xs-4">Product</h4>
         <h4 class="col-xs-4">Quantity</h4>
@@ -43,21 +37,21 @@
 
       <div class="row top-buffer">
         <div class="col-xs-12 col-sm-5 col-md-4">
-{#          <form>#}
-{#            <fieldset>#}
-{#              <legend>Have a Promo code?</legend>#}
-{#              <input type="text">#}
-{#              <input type="submit">#}
-{#            </fieldset>#}
-{#          </form>#}
-            <div class="promo-code">
-              <h3 class="promo-header">Have A Promo Code?</h3>
-              <input type="text" class="promo-input" placeholder="Enter Code" />
-              <a href="#" class="btn btn-info btn-circle"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-            </div>
+          <form method="POST" class="promo-code">
+            {% csrf_token %}
+            <h3 class="promo-header">Have A Promo Code?</h3>
+            <input name="discount" type="text" class="promo-input" placeholder="Enter Code" />
+            <button type="submit" class="btn btn-info btn-circle"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            {% for message in messages %}
+              <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+          </form>
         </div>
         <div id="cart-total" class="col-sm-offset-3 col-sm-4 col-md-offset-5 col-md-3">
           <p id="subtotal">Subtotal: £{{ subtotal }}</p>
+          {% if discount %}
+            <p style="color: red;">Discount: -£{{ discount }}</p>
+          {% endif %}
           <p id="shipping">Shipping: £{{ shipping }}</p>
           <p id="total"><strong>Total: £{{ total }}</strong></p>
         </div>
