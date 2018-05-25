@@ -12,7 +12,7 @@
           <img src="{% gravatar_url post.author.email %}" class="profile-picture img-responsive">
         {% endif %}
       </figure>
-      <div class="col-sm-8">
+      <div class="col-sm-8 article-background profile-content">
         <p><strong>Full name: </strong>{{ user.first_name }} {{ user.last_name }}</p>
         <p><strong>Email: </strong>{{ user.email }}</p>
         <p><strong>Date joined: </strong>{{ user.date_joined }}</p>

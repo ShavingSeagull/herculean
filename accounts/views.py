@@ -160,10 +160,10 @@ def delete_user_post(request, slug=None):
 @login_required
 def get_current_codes(request):
     """
-    Verifies user is an Admin and retrieves all the current discount
+    Verifies user is logged in and retrieves all the current discount
     codes that are active (Active=True and within the dates provided).
     """
-    if request.user.is_superuser:
+    if request.user:
         promo_list = PromoCode.objects.filter(start_date__lte=timezone.now(), expiry_date__gte=timezone.now(), active=True).order_by('name')
         paginator = Paginator(promo_list, 6)
 
@@ -171,5 +171,5 @@ def get_current_codes(request):
         codes = paginator.get_page(page)
         return render(request, "promo_list.html", {'codes': codes})
     else:
-        messages.error(request, "That section is only available for Administrators.")
+        messages.error(request, "You have to be a member to see that.")
         return redirect(reverse(profile))

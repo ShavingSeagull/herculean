@@ -4,6 +4,17 @@
 {% block profile_content %}
   <section class="col-md-12">
     <h1 class="brand-text-profile-header">Current Active Codes</h1>
+    {% if not user.is_superuser %}
+      <br>
+      <p><strong>See below for all the current discount codes available.
+      The code is in <span style="color: red;"><strong>red</strong></span> and the
+        dates show the availability, so be sure not to miss out!</strong></p>
+      <br>
+      <p><strong>What's more - the codes can be used an unlimited number of times!</strong></p>
+      <br>
+      <p class="text-muted">Note: Codes can only be redeemed by account holder at checkout. Only
+      one code may be used per transaction.</p>
+    {% endif %}
     <div class="top-buffer">
       {% if codes %}
         {% for code in codes %}

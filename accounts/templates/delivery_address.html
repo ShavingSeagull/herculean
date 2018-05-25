@@ -1,18 +1,20 @@
 {% extends "profile_base.html" %}
 {% block page_title %}Delivery Address{% endblock %}
 {% block profile_content %}
-  <article class="col-md-9">
+  <section class="col-md-9">
     <h1 class="brand-text-profile-header">{{ user.username }}'s Delivery Address</h1>
     <div class="top-buffer">
       <h4>Here you can see your current set delivery address. If you wish to change these details, just click the 'Edit'
         button at the bottom!</h4>
-      <p class="top-buffer"><strong>House number/name: </strong>{{ user.profile.house_number }}</p>
-      <p><strong>Street: </strong>{{ user.profile.address1 }}</p>
-      <p><strong>Address Line 2: </strong>{{ user.profile.address2 }}</p>
-      <p><strong>City/Town: </strong>{{ user.profile.city }}</p>
-      <p><strong>County/State/Province: </strong>{{ user.profile.county }}</p>
-      <p><strong>Post/Zip Code: </strong>{{ user.profile.post_code }}</p>
+      <article class="article-background delivery-address top-buffer">
+        <p><strong>House number/name: </strong>{{ user.profile.house_number }}</p>
+        <p><strong>Street: </strong>{{ user.profile.address1 }}</p>
+        <p><strong>Address Line 2: </strong>{{ user.profile.address2 }}</p>
+        <p><strong>City/Town: </strong>{{ user.profile.city }}</p>
+        <p><strong>County/State/Province: </strong>{{ user.profile.county }}</p>
+        <p><strong>Post/Zip Code: </strong>{{ user.profile.post_code }}</p>
+      </article>
       <a href="{% url 'edit-address' %}" class="button-spacing btn btn-lg btn-info">Edit</a>
     </div>
-  </article>
+  </section>
 {% endblock %}

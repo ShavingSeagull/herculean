@@ -14,12 +14,12 @@
           </div>
           <div class="list-group" id="product-nav">
             {% with request.resolver_match.url_name as url_name %}
-              <a href="{% url 'protein' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'protein' %}active-link{% endif %}">Protein</a>
-              <a href="{% url 'creatine' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'creatine' %}active-link{% endif %}">Creatine</a>
-              <a href="{% url 'amino_acids' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'amino_acids' %}active-link{% endif %}">Amino Acids</a>
-              <a href="{% url 'supplements' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'supplements' %}active-link{% endif %}">Vitamins & Supplements</a>
-              <a href="{% url 'accessories' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'accessories' %}active-link{% endif %}">Accessories</a>
-              <a href="{% url 'equipment' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'equipment' %}active-link{% endif %}">Equipment</a>
+              <a href="{% url 'protein' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'protein' %}products-active-link{% endif %}">Protein</a>
+              <a href="{% url 'creatine' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'creatine' %}products-active-link{% endif %}">Creatine</a>
+              <a href="{% url 'amino_acids' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'amino_acids' %}products-active-link{% endif %}">Amino Acids</a>
+              <a href="{% url 'supplements' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'supplements' %}products-active-link{% endif %}">Vitamins & Supplements</a>
+              <a href="{% url 'accessories' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'accessories' %}products-active-link{% endif %}">Accessories</a>
+              <a href="{% url 'equipment' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'equipment' %}products-active-link{% endif %}">Equipment</a>
             {% endwith %}
           </div>
         </section>

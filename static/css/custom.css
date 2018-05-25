@@ -73,7 +73,7 @@ button a, button a:hover, button a:focus {
 }
 
 .button-spacing {
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .metal-bg {
@@ -96,9 +96,6 @@ button a, button a:hover, button a:focus {
     display: none;
 }
 
-.mobile-invisible {
-    visibility: hidden;
-}
 
 /* Base Page */
 
@@ -322,6 +319,12 @@ header.carousel .fill {
     color: red;
 }
 
+.profile-active-link,
+.profile-active-link:hover {
+    color: red !important;
+    cursor: default;
+}
+
 .brand-text-profile-header {
     color: black;
     text-shadow: 2px 3px 4px gray;
@@ -331,6 +334,14 @@ header.carousel .fill {
     height: auto;
     width: 200px;
     margin-bottom: 30px;
+}
+
+.profile-content {
+    padding: 20px;
+}
+
+.delivery-address {
+    padding: 10px 10px;
 }
 
 .post-modification-buttons {
@@ -482,8 +493,8 @@ header.carousel .fill {
     padding-top: 20px;
 }
 
-.active-link,
-.active-link:hover {
+.products-active-link,
+.products-active-link:hover {
     color: red !important;
     cursor: default;
     background-color: #fff !important;
@@ -638,8 +649,7 @@ header.carousel .fill {
 @media(min-width:380px) {
     /* Phones from iPhone S5 upwards taken into account. For standard phone sizes
      (not incl Galaxy Note type phones), the size tends to max out at 375px. Added 5px for good measure.*/
-    .mobile-hidden,
-    .mobile-invisible {
+    .mobile-hidden {
         display: initial;
     }
 

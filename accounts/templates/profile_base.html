@@ -2,21 +2,23 @@
 {% block content %}
   <section class="page-wrap">
     <div class="col-md-3 sub-menu">
-      <a href="{% url 'profile' %}">View Profile</a>
-      <a href="{% url 'edit-profile' %}">Edit Profile</a>
-      {% if user.is_staff %}
-        <a href="{% url 'add-post' %}">Make a Post</a>
-        <a href="{% url 'posts-list' %}">Your List of Posts</a>
-      {% endif %}
-      {% if user.is_superuser %}
-        <a href="{% url 'promocodes-list' %}">Current Discount Codes</a>
-      {% endif %}
-      {% if not user.is_staff %}
-        <a href="#">Order History</a>
-        <a href="#">Payment Details</a>
-        <a href="{% url 'delivery-address' %}">Delivery Address</a>
-        <a href="#">Discounts</a>
-      {% endif %}
+      {% with request.resolver_match.url_name as url_name %}
+        <a href="{% url 'profile' %}" class="{% if url_name == 'profile' %}profile-active-link{% endif %}">View Profile</a>
+        <a href="{% url 'edit-profile' %}" class="{% if url_name == 'edit-profile' %}profile-active-link{% endif %}">Edit Profile</a>
+        {% if user.is_staff %}
+          <a href="{% url 'add-post' %}" class="{% if url_name == 'add-post' %}profile-active-link{% endif %}">Make a Post</a>
+          <a href="{% url 'posts-list' %}" class="{% if url_name == 'posts-list' %}profile-active-link{% endif %}">Your List of Posts</a>
+        {% endif %}
+        {% if user.is_superuser %}
+          <a href="{% url 'promocodes-list' %}" class="{% if url_name == 'promocodes-list' %}profile-active-link{% endif %}">Current Discount Codes</a>
+        {% endif %}
+        {% if not user.is_staff %}
+          <a href="#">Order History</a>
+          <a href="#">Payment Details</a>
+          <a href="{% url 'delivery-address' %}" class="{% if url_name == 'delivery-address' %}profile-active-link{% endif %}">Delivery Address</a>
+          <a href="{% url 'promocodes-list' %}" class="{% if url_name == 'promocodes-list' %}profile-active-link{% endif %}">Discounts</a>
+        {% endif %}
+      {% endwith %}
     </div>
     <div class="main-profile-area">
       {% if messages %}

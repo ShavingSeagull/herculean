@@ -77,7 +77,11 @@
               </ul>
             </li>
             <li>
-              <a href="{% url 'view-cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+              <a href="{% url 'view-cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                {% if product_count > 0 %}
+                  <label class="badge badge-warning">{{ product_count }}</label>
+                {% endif %}
+              </a>
             </li>
           {% else %}
             <li>
