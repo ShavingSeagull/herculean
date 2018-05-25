@@ -57,25 +57,29 @@
             </div>
           </article>
         {% endfor %}
-        <div class="pagination">
-          <span class="step-links mina-text pagination-text">
-            {% if posts.has_previous %}
-              <a href="?page=1" class="custom-anchor">&laquo; first</a>
-              <span>|</span>
-              <a href="?page={{ posts.previous_page_number }}" class="custom-anchor">previous</a>
-            {% endif %}
 
-            <span class="current">
-              Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        <div class="text-center">
+          <div class="pagination">
+            <span class="step-links mina-text pagination-text">
+              {% if posts.has_previous %}
+                <a href="?page=1" class="custom-anchor">&laquo; first</a>
+                <span>|</span>
+                <a href="?page={{ posts.previous_page_number }}" class="custom-anchor">previous</a>
+              {% endif %}
+
+              <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+              </span>
+
+              {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}" class="custom-anchor">next</a>
+                <span>|</span>
+                <a href="?page={{ posts.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
+              {% endif %}
             </span>
-
-            {% if posts.has_next %}
-              <a href="?page={{ posts.next_page_number }}" class="custom-anchor">next</a>
-              <span>|</span>
-              <a href="?page={{ posts.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
-            {% endif %}
-          </span>
+          </div>
         </div>
+
       {% else %}
         <p style="font-size: 18px;">You have no posts yet. What are we paying you for?</p>
       {% endif %}

@@ -44,29 +44,29 @@
         </div>
       </article>
     {% endfor %}
-    <div class="container">
-      <div class="pagination col-xs-12">
-        <span class="step-links pagination-text mina-text">
-          {% if posts.has_previous %}
-            <a href="?page=1" class="custom-anchor">&laquo; first</a>
-            <span>|</span>
-            <a href="?page={{ posts.previous_page_number }}" class="custom-anchor">previous</a>
-          {% endif %}
 
-          <span class="current">
-            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+    <div class="text-center">
+      <div class="container">
+        <div class="pagination col-xs-12">
+          <span class="step-links pagination-text mina-text">
+            {% if posts.has_previous %}
+              <a href="?page=1" class="custom-anchor">&laquo; first</a>
+              <span>|</span>
+              <a href="?page={{ posts.previous_page_number }}" class="custom-anchor">previous</a>
+            {% endif %}
+
+            <span class="current">
+              Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+              <a href="?page={{ posts.next_page_number }}" class="custom-anchor">next</a>
+              <span>|</span>
+              <a href="?page={{ posts.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
+            {% endif %}
           </span>
-
-          {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}" class="custom-anchor">next</a>
-            <span>|</span>
-            <a href="?page={{ posts.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
-          {% endif %}
-        </span>
+        </div>
       </div>
     </div>
-    <!--<aside class="col-md-0 col-lg-3 news-aside-image">
-      <img src="{% static 'img/news/portrait_long.jpg' %}" class="img-responsive smallcomp-hidden">
-    </aside>-->
   </section>
 {% endblock %}

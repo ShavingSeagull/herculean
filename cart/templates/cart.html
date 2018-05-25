@@ -26,7 +26,7 @@
               <div class="input-group">
                 <input name="quantity" type="number" min="0" max="999" value="{{ item.quantity }}" class="form-control cart-quantity">
                 <button type="submit" class="btn btn-info cart-buttons"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                <a href="#" class="btn btn-danger cart-buttons"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                <a href="{% url 'remove-from-cart' item.product.id %}" class="btn btn-danger cart-buttons"><i class="fa fa-trash" aria-hidden="true"></i></a>
               </div>
             </div>
           </form>

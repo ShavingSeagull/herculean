@@ -346,6 +346,10 @@ header.carousel .fill {
     color: #337ab7;
 }
 
+.discount-item {
+    margin-left: 20px;
+}
+
 /* News Pages */
 
 #news-page-add-button {
@@ -620,12 +624,6 @@ header.carousel .fill {
     width: 60px;
 }
 
-/*.promo-code > label {
-    display: block;
-    font-family: life_is_okayregular, "Arial Black", sans-serif;
-    font-size: 20px;
-    color: #333
-}*/
 
 /* 404 Page Styles */
 

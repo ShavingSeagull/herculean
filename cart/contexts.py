@@ -1,4 +1,4 @@
-from decimal import Decimal, ROUND_DOWN
+from decimal import Decimal
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
@@ -20,7 +20,7 @@ def cart_contents(request):
     now = timezone.now()
 
     cart_items = []
-    discount = Decimal('0').quantize(Decimal('.01'))
+    discount = Decimal(0)
     subtotal = Decimal('0').quantize(Decimal('.01'))
     product_count = 0
     shipping = Decimal('1.20').quantize(Decimal('.01'))
@@ -39,13 +39,12 @@ def cart_contents(request):
                                               expiry_date__gte=now,
                                               active=True)
 
-            discount = (promocode.discount * subtotal) / Decimal(100)
+            discount = Decimal((promocode.discount * subtotal) / Decimal(100)).quantize(Decimal('.01'))
             subtotal -= Decimal(discount).quantize(Decimal('.01'))
 
         except PromoCode.DoesNotExist:
             messages.error(request, "Promo Code is invalid")
 
-        #request.session['promocode'] = promocode
 
     # Shipping and total need to be outside the loop to avoid repeated additions that aren't necessary
     shipping *= product_count

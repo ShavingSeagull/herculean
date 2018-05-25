@@ -1,0 +1,46 @@
+{% extends "profile_base.html" %}
+{% block page_title %}Current Discount Codes{% endblock %}
+
+{% block profile_content %}
+  <section class="col-md-12">
+    <h1 class="brand-text-profile-header">Current Active Codes</h1>
+    <div class="top-buffer">
+      {% if codes %}
+        {% for code in codes %}
+          <div class="row">
+            <article class="col-xs-9 col-sm-5 article-background discount-item">
+              <h3>{{ code.name }}
+                <h4 style="color: red;">{{ code.code }}</h4>
+              </h3>
+              <h4>{{ code.start_date }} <span class="mina-text">to</span> {{ code.expiry_date }}</h4>
+            </article>
+          </div>
+        {% endfor %}
+
+        <div class="text-center">
+          <div class="pagination">
+            <span class="step-links mina-text pagination-text">
+              {% if codes.has_previous %}
+                <a href="?page=1" class="custom-anchor">&laquo; first</a>
+                <span>|</span>
+                <a href="?page={{ codes.previous_page_number }}" class="custom-anchor">previous</a>
+              {% endif %}
+
+              <span class="current">
+                Page {{ codes.number }} of {{ codes.paginator.num_pages }}.
+              </span>
+
+              {% if codes.has_next %}
+                <a href="?page={{ codes.next_page_number }}" class="custom-anchor">next</a>
+                <span>|</span>
+                <a href="?page={{ codes.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      {% else %}
+        <p>There are no codes to show.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

@@ -9,7 +9,7 @@
         {% if user.profile.profile_pic %}
           <img src="/media/{{ user.profile.profile_pic }}" class="profile-picture img-responsive">
         {% else %}
-          <img src="{% gravatar_url post.author.email %}" class="profile-picture">
+          <img src="{% gravatar_url post.author.email %}" class="profile-picture img-responsive">
         {% endif %}
       </figure>
       <div class="col-sm-8">

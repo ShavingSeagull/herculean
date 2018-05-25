@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
 from news.models import Post
+from promocodes.models import PromoCode
 
 
 def index(request):
@@ -153,4 +154,22 @@ def delete_user_post(request, slug=None):
         return redirect(reverse(get_user_posts))
     else:
         messages.error(request, "Only staff can delete posts.")
+        return redirect(reverse(profile))
+
+
+@login_required
+def get_current_codes(request):
+    """
+    Verifies user is an Admin and retrieves all the current discount
+    codes that are active (Active=True and within the dates provided).
+    """
+    if request.user.is_superuser:
+        promo_list = PromoCode.objects.filter(start_date__lte=timezone.now(), expiry_date__gte=timezone.now(), active=True).order_by('name')
+        paginator = Paginator(promo_list, 6)
+
+        page = request.GET.get('page')
+        codes = paginator.get_page(page)
+        return render(request, "promo_list.html", {'codes': codes})
+    else:
+        messages.error(request, "That section is only available for Administrators.")
         return redirect(reverse(profile))
