@@ -6,6 +6,11 @@
     <div class="top-buffer">
       <h4>Here you can see your current set delivery address. If you wish to change these details, just click the 'Edit'
         button at the bottom!</h4>
+      <p>
+        <strong>If your country of residence isn't listed, we aren't able to deliver there directly. We apologise for the inconvenience,
+          but if the <span class="brand-text-red-light-bg" style="font-size: initial;">HERCULEAN</span> range is just too good to turn down, a forwarding service might be the answer. We recommend
+        <a href="http://www.borderlinx.com" class="default-anchor" target="_blank">Borderlinx</a>, who deliver to 60+ countries.</strong>
+      </p>
       <article class="article-background delivery-address top-buffer">
         <p><strong>House number/name: </strong>{{ user.profile.house_number }}</p>
         <p><strong>Street: </strong>{{ user.profile.address1 }}</p>
@@ -13,6 +18,7 @@
         <p><strong>City/Town: </strong>{{ user.profile.city }}</p>
         <p><strong>County/State/Province: </strong>{{ user.profile.county }}</p>
         <p><strong>Post/Zip Code: </strong>{{ user.profile.post_code }}</p>
+        <p><strong>Country: </strong>{{ user.profile.get_country_display }}</p>
       </article>
       <a href="{% url 'edit-address' %}" class="button-spacing btn btn-lg btn-info">Edit</a>
     </div>

@@ -1,16 +1,17 @@
 from django.db import models
 import os
 
-CHOICES = (
-    ('accessories', 'Accessories'),
-    ('amino_acids', 'Amino-Acids'),
-    ('creatine', 'Creatine'),
-    ('equipment', 'Equipment'),
-    ('protein', 'Protein'),
-    ('supplements', 'Supplements')
-)
 
 class Product(models.Model):
+    CHOICES = (
+        ('accessories', 'Accessories'),
+        ('amino_acids', 'Amino-Acids'),
+        ('creatine', 'Creatine'),
+        ('equipment', 'Equipment'),
+        ('protein', 'Protein'),
+        ('supplements', 'Supplements')
+    )
+
     name = models.CharField(max_length=30, default='')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)

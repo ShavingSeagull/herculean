@@ -59,6 +59,14 @@ button a, button a:hover, button a:focus {
     color: red;
 }
 
+.default-anchor:hover {
+    color: red;
+}
+
+.default-anchor:focus {
+    color: #337ab7;
+}
+
 .mandatory-text {
     color: red;
     margin: 17px 0;

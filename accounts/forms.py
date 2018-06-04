@@ -73,5 +73,6 @@ class AddressForm(forms.ModelForm):
                   'address2',
                   'city',
                   'county',
-                  'post_code'
+                  'post_code',
+                  'country'
                   )

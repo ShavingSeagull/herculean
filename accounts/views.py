@@ -4,6 +4,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
+from .models import Profile
 from news.models import Post
 from promocodes.models import PromoCode
 
@@ -115,7 +116,7 @@ def edit_address(request):
         else:
             messages.error(request, "Update unsuccessful. Please rectify the problem below")
     else:
-        address_form = AddressForm(instance=request.user)
+        address_form = AddressForm(instance=request.user.profile)
 
     args = {'address_form': address_form}
     return render(request, 'edit_address.html', args)
