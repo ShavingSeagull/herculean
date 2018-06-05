@@ -1,1 +1,42 @@
 {% extends "base.html" %}
+{% block page_title %}Checkout{% endblock %}
+
+{% block content %}
+
+  <section class="metal-bg cart-background">
+    <div class="container cart-section">
+
+      <h3>Checkout</h3>
+      <hr>
+
+      <div class="row bottom-buffer">
+        <h4 class="col-md-2">Number of items: {{ product_count }}</h4>
+        <h4 class="col-md-2">Total to pay: £{{ total }}</h4>
+      </div>
+
+      <h4>Delivery Information</h4>
+      <hr>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <form>
+            {% if user.address %}
+              <div class="row radio-input">
+                <input type="radio" name="delivery-address" value="saved">
+                {{ user.address.house_number }} {{ user.address.address1 }}, <br>
+                {% if user.address.address2 %}{{ user.address.address2 }}, <br>{% endif %}
+                {{ user.address.city }}, {{ user.address.county }},
+                {{ user.address.get_country_display }}
+              </div>
+            {% endif %}
+            <div class="row radio-input">
+              <input type="radio" name="delivery-address" value="new"> Add a new address
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

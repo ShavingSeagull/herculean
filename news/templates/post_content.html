@@ -22,7 +22,7 @@
           </div>
         </figure>
         <div class="post-body">
-          <a href="{% url 'news' %}" class="custom-anchor back-button"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to News</a>
+          <h4><a href="{% url 'news' %}" class="custom-anchor back-button"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to News</a></h4>
           <!-- Ensures only the original author can edit the post -->
           {% if user == post.author %}
             <a href="{% url 'edit-post' post.slug %}" class="btn btn-info" id="edit-button"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Post</a>

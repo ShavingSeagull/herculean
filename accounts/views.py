@@ -4,7 +4,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
-from .models import Profile
+from .models import Profile, Address
 from news.models import Post
 from promocodes.models import PromoCode
 
@@ -107,7 +107,7 @@ def delivery_address(request):
 @login_required
 def edit_address(request):
     if request.method == 'POST':
-        address_form = AddressForm(request.POST, instance=request.user.profile)
+        address_form = AddressForm(request.POST, instance=request.user.address)
 
         if address_form.is_valid():
             address_form.save()
@@ -116,10 +116,24 @@ def edit_address(request):
         else:
             messages.error(request, "Update unsuccessful. Please rectify the problem below")
     else:
-        address_form = AddressForm(instance=request.user.profile)
+        address_form = AddressForm(instance=request.user.address)
 
     args = {'address_form': address_form}
     return render(request, 'edit_address.html', args)
+
+
+@login_required
+def delete_address(request, pk=None):
+    if request.user:
+        address = get_object_or_404(Address, pk=pk) if pk else None
+        address.delete()
+
+        messages.success(request, "You successfully deleted your delivery address")
+        return redirect(delivery_address)
+
+    else:
+        messages.error(request, "There was a problem. Your address has not been deleted.")
+        return redirect(delivery_address)
 
 
 @login_required

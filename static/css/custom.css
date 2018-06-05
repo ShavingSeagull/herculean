@@ -577,7 +577,7 @@ header.carousel .fill {
     margin-bottom: 15px;
 }
 
-/* Cart Pages */
+/* Cart Page */
 
 .cart-section {
     background-color: white;
@@ -641,6 +641,13 @@ header.carousel .fill {
 .cart-buttons {
     display: block;
     width: 60px;
+}
+
+/* Checkout page */
+
+.radio-input {
+    padding: 20px;
+    border: 2px solid black;
 }
 
 

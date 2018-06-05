@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'reviews',
     'promocodes',
     'cart',
-    #'checkout',
+    'checkout',
 ]
 
 DISQUS_API_KEY = os.environ.get("DISQUS_API_KEY")
