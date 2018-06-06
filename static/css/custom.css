@@ -650,6 +650,10 @@ header.carousel .fill {
     border: 2px solid black;
 }
 
+#checkout-form legend {
+    font-family: life_is_okayregular, "Arial Black", sans-serif;
+}
+
 
 /* 404 Page Styles */
 

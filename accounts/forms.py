@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import Profile, Address
+from .models import Profile
 
 
 class UserLoginForm(forms.Form):
@@ -62,18 +62,3 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('bio', 'location', 'profile_pic')
-
-
-class AddressForm(forms.ModelForm):
-
-    class Meta:
-        model = Address
-        fields = (
-            'house_number',
-            'address1',
-            'address2',
-            'city',
-            'county',
-            'post_code',
-            'country'
-        )

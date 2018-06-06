@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect, reverse, HttpResponseRedirect, ge
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm, AddressForm
-from .models import Profile, Address
+from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm
+from .models import Profile
 from news.models import Post
 from promocodes.models import PromoCode
 
@@ -97,43 +97,6 @@ def edit_profile(request):
         'profile_form': profile_form
     }
     return render(request, 'edit_profile.html', args)
-
-
-@login_required
-def delivery_address(request):
-    return render(request, 'delivery_address.html')
-
-
-@login_required
-def edit_address(request):
-    if request.method == 'POST':
-        address_form = AddressForm(request.POST, instance=request.user.address)
-
-        if address_form.is_valid():
-            address_form.save()
-            messages.success(request, "Your address information has been updated!")
-            return redirect(reverse('delivery-address'))
-        else:
-            messages.error(request, "Update unsuccessful. Please rectify the problem below")
-    else:
-        address_form = AddressForm(instance=request.user.address)
-
-    args = {'address_form': address_form}
-    return render(request, 'edit_address.html', args)
-
-
-@login_required
-def delete_address(request, pk=None):
-    if request.user:
-        address = get_object_or_404(Address, pk=pk) if pk else None
-        address.delete()
-
-        messages.success(request, "You successfully deleted your delivery address")
-        return redirect(delivery_address)
-
-    else:
-        messages.error(request, "There was a problem. Your address has not been deleted.")
-        return redirect(delivery_address)
 
 
 @login_required

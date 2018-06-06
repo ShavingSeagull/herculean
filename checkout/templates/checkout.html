@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap_tags %}
 {% block page_title %}Checkout{% endblock %}
 
 {% block content %}
@@ -6,35 +7,32 @@
   <section class="metal-bg cart-background">
     <div class="container cart-section">
 
-      <h3>Checkout</h3>
+      <h3 style="font-size: 30px;" class="text-center">Checkout</h3>
       <hr>
 
       <div class="row bottom-buffer">
-        <h4 class="col-md-2">Number of items: {{ product_count }}</h4>
+        <h4 class="col-md-offset-4 col-md-2">Number of items: {{ product_count }}</h4>
         <h4 class="col-md-2">Total to pay: £{{ total }}</h4>
       </div>
 
-      <h4>Delivery Information</h4>
-      <hr>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <form>
-            {% if user.address %}
-              <div class="row radio-input">
-                <input type="radio" name="delivery-address" value="saved">
-                {{ user.address.house_number }} {{ user.address.address1 }}, <br>
-                {% if user.address.address2 %}{{ user.address.address2 }}, <br>{% endif %}
-                {{ user.address.city }}, {{ user.address.county }},
-                {{ user.address.get_country_display }}
-              </div>
-            {% endif %}
-            <div class="row radio-input">
-              <input type="radio" name="delivery-address" value="new"> Add a new address
-            </div>
-          </form>
+      <form method="POST" id="checkout-form">
+        <div class="row">
+          {% csrf_token %}
+          <fieldset class="form-group col-md-offset-1 col-md-4">
+            <legend>Delivery Address</legend>
+            {{ order_form | as_bootstrap }}
+          </fieldset>
+          <fieldset class="form-group col-md-offset-2 col-md-4">
+            <legend>Payment Information</legend>
+            {{ payment_form | as_bootstrap }}
+          </fieldset>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-md-offset-2 col-md-8">
+            <button type="submit" class="btn btn-block btn-lg btn-info">Place Order</button>
+          </div>
+        </div>
+      </form>
 
     </div>
   </section>

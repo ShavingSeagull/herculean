@@ -15,7 +15,6 @@
         {% if not user.is_staff %}
           <a href="#">Order History</a>
           <a href="#">Payment Details</a>
-          <a href="{% url 'delivery-address' %}" class="{% if url_name == 'delivery-address' %}profile-active-link{% endif %}">Delivery Address</a>
           <a href="{% url 'promocodes-list' %}" class="{% if url_name == 'promocodes-list' %}profile-active-link{% endif %}">Discounts</a>
         {% endif %}
       {% endwith %}
