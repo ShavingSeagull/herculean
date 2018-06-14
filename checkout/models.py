@@ -91,7 +91,7 @@ class Order(models.Model):
     address2 = models.CharField(max_length=40, blank=True, verbose_name='Address Line 2 (optional)')
     city = models.CharField(max_length=40, blank=False, verbose_name='Town/City')
     county = models.CharField(max_length=40, blank=False, verbose_name='County/State/Province')
-    post_code = models.CharField(max_length=20, blank=True, verbose_name='Postal/Zip Code')
+    post_code = models.CharField(max_length=20, blank=False, verbose_name='Postal/Zip Code')
     country = models.CharField(max_length=20, blank=False, choices=COUNTRIES)
     phone_number = models.CharField(max_length=20, blank=False, verbose_name='Phone Number (needed for delivery)')
     date = models.DateField()

@@ -34,7 +34,8 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  {% block head_js %}{% endblock head_js %}
+  {% block head_js %}
+  {% endblock %}
 </head>
 
 <body>
@@ -108,8 +109,8 @@
         <div class="col-md-4">
           <p class="footer-text"><span style="color: white">The Boring Bit...</span></p>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="#">Delivery Information</a></li>
             <li><a href="#">Promotional Codes</a></li>
           </ul>

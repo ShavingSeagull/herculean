@@ -40,6 +40,10 @@ button a, button a:hover, button a:focus {
     color: white;
 }
 
+.bold-text {
+    font-weight: bold;
+}
+
 .mina-text {
     font-family: 'Mina', sans-serif;
 }
@@ -290,6 +294,30 @@ header.carousel .fill {
     font-family: 'Mina', sans-serif;
     font-size: 20px;
 }
+
+/* About Page */
+
+.about-section p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.about-section h3 {
+    font-size: 35px;
+}
+
+.about-background {
+    display: flex;
+    min-height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.about-layover {
+    background: rgba(0,0,0,0.1);
+    color: #fff;
+}
+
 
 /* Accounts Pages (register, login, logout, profile etc) */
 
@@ -650,7 +678,7 @@ header.carousel .fill {
     border: 2px solid black;
 }
 
-#checkout-form legend {
+#payment-form legend {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
 }
 

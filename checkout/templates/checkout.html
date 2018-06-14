@@ -1,13 +1,24 @@
 {% extends "base.html" %}
+{% load static from staticfiles %}
 {% load bootstrap_tags %}
 {% block page_title %}Checkout{% endblock %}
+
+{% block head_js %}
+    <script src="https://js.stripe.com/v2/"></script>
+    <script>
+        //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+        //]]>
+    </script>
+    <script src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 
   <section class="metal-bg cart-background">
     <div class="container cart-section">
 
-      <h3 style="font-size: 30px;" class="text-center">Checkout</h3>
+      <h1 class="text-center">Checkout</h1>
       <hr>
 
       <div class="row bottom-buffer">
@@ -15,21 +26,24 @@
         <h4 class="col-md-2">Total to pay: £{{ total }}</h4>
       </div>
 
-      <form method="POST" id="checkout-form">
+      <form role="form" method="POST" action="{% url 'checkout' %}" id="payment-form">
         <div class="row">
           {% csrf_token %}
-          <fieldset class="form-group col-md-offset-1 col-md-4">
+          <div id="credit-card-errors" style="display:none">
+            <div class="alert-message block-message error" id="stripe-error-message"></div>
+          </div>
+          <div class="form-group col-md-offset-1 col-md-4">
             <legend>Delivery Address</legend>
             {{ order_form | as_bootstrap }}
-          </fieldset>
-          <fieldset class="form-group col-md-offset-2 col-md-4">
+          </div>
+          <div class="form-group col-md-offset-2 col-md-4">
             <legend>Payment Information</legend>
             {{ payment_form | as_bootstrap }}
-          </fieldset>
+          </div>
         </div>
         <div class="row">
           <div class="col-md-offset-2 col-md-8">
-            <button type="submit" class="btn btn-block btn-lg btn-info">Place Order</button>
+            <input class="btn btn-block btn-lg btn-info" id="submit_payment_btn" type="submit" name="commit" value="Place Order" />
           </div>
         </div>
       </form>

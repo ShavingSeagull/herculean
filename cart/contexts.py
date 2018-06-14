@@ -17,6 +17,9 @@ def cart_contents(request):
 
     cart = request.session.get('cart', {})
     code = request.POST.get('discount')
+    if not code:
+        code = request.session.get('discount', {})
+
     now = timezone.now()
 
     cart_items = []
@@ -29,8 +32,30 @@ def cart_contents(request):
         product = get_object_or_404(Product, pk=id)
         price_by_quantity = Decimal(quantity) * Decimal(product.price)
         product_count += quantity
-        subtotal += Decimal(quantity) * Decimal(product.price)
+        subtotal += price_by_quantity
         cart_items.append({'id': id, 'quantity': quantity, 'product': product, 'item_total': price_by_quantity})
+
+    # for id, quantity in cart.items():
+    #     product = get_object_or_404(Product, pk=id)
+    #     price_by_quantity = Decimal(quantity) * Decimal(product.price)
+    #
+    #     if code:
+    #         try:
+    #             promocode = PromoCode.objects.get(code__iexact=code,
+    #                                               start_date__lte=now,
+    #                                               expiry_date__gte=now,
+    #                                               active=True)
+    #
+    #             discount = Decimal((promocode.discount * price_by_quantity) / Decimal(100)).quantize(Decimal('.01'))
+    #             price_by_quantity -= Decimal(discount).quantize(Decimal('.01'))
+    #
+    #         except PromoCode.DoesNotExist:
+    #             messages.error(request, "Promo Code is invalid")
+    #
+    #     product_count += quantity
+    #     request.session['discount'] = code
+    #     subtotal += price_by_quantity
+    #     cart_items.append({'id': id, 'quantity': quantity, 'product': product, 'item_total': price_by_quantity})
 
     if code:
         try:
@@ -40,14 +65,16 @@ def cart_contents(request):
                                               active=True)
 
             discount = Decimal((promocode.discount * subtotal) / Decimal(100)).quantize(Decimal('.01'))
-            subtotal -= Decimal(discount).quantize(Decimal('.01'))
+            #subtotal -= Decimal(discount).quantize(Decimal('.01'))
+
+            request.session['discount'] = code
 
         except PromoCode.DoesNotExist:
-            messages.error(request, "Promo Code is invalid")
+            messages.error(request, "Promo code is invalid")
 
 
     # Shipping and total need to be outside the loop to avoid repeated additions that aren't necessary
     shipping *= product_count
-    total = Decimal(subtotal + shipping).quantize(Decimal('.01'))
+    total = Decimal(subtotal - discount + shipping).quantize(Decimal('.01'))
 
     return {'cart_items': cart_items, 'subtotal': subtotal, 'shipping': shipping, 'total': total, 'discount': discount, 'product_count': product_count}

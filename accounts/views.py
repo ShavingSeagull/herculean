@@ -4,7 +4,6 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm
-from .models import Profile
 from news.models import Post
 from promocodes.models import PromoCode
 
