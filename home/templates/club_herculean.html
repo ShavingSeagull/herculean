@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block page_title %}Club Herculean{% endblock %}
+
+{% block content %}
+
+  <section class="flex-background">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="brand-text-header-white metal-bg info-page-header">Club <span class="brand-text-header-red">Herculean</span></h2>
+
+          <h4 class="top-buffer">
+            The flagship of the commercial side of <span class="brand-text-red-light-bg" style="font-size: 25px;">HERCULEAN</span>
+            is the great discounts we offer our members! Everyone loves a saving, which is why we constantly offer you the chance
+            to save on your fitness shop with us.
+          </h4>
+          <h4>Interested in finding out more? Take a look at the information below!</h4>
+
+          <p class="top-buffer bold-text">
+            Times are hard and supplements are expensive. So how do you maintain your gym physique in a cash-strapped
+            climate?
+          </p>
+          <p class="bold-text">
+            <span class="brand-text-black">Club</span> <span class="brand-text-red-light-bg">Herculean</span> of course!
+          </p>
+          <p class="bold-text">
+            It costs nothing to be a part of this brilliant club - all we ask is that you create an account with us,
+            which is naturally free of charge. We won't bombard you with snail mail or emails every five minutes and your
+            details are completely safe. In return for this small gesture of commitment, we will reward you with
+            guaranteed offers every single month!
+          </p>
+          <p class="bold-text">
+            Fancy 10% off everything in the store? What about 20%? Sound attractive?
+          </p>
+          <p class="bold-text">
+            Well it should, because both have been real offers found right here in <span class="brand-text-black">Club</span>
+            <span class="brand-text-red-light-bg">Herculean</span>. What's more, every Promo Code can be used an infinite
+            number of times while it's active! That's right, you can get a saving every single time you shop with us!
+            You would be hard-pressed to find that anywhere else, so what are you waiting for? Click the button below to
+            register now!
+          </p>
+          <div class="top-buffer">
+            <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-info">Join Club Herculean!</a>
+          </div>
+          <hr>
+          <p class="top-buffer text-muted">
+            Nobody likes rules and regulations, but unfortunately
+            they're necessary. So before you sign up, be sure to read the Ts & Cs below:
+          </p>
+          <ol class="top-buffer terms-list text-muted" type="i">
+            <li>Promo Codes can be used an infinite number of times while they're active.</li>
+            <li>Promo Codes can only be used by the Club Herculean member.</li>
+            <li>Promo Codes will not work for non-members at checkout.</li>
+            <li>Promo Codes are applied before any delivery charges.</li>
+            <li>Only one Promo Code may be used per transaction.</li>
+            <li>HERCULEAN reserves the right to revoke Club Herculean membership at any time.</li>
+            <li>Anybody found guilty of sharing Club Herculean membership will have their account revoked immediately.</li>
+          </ol>
+          <p class="top-buffer text-muted">
+            Club Herculean is a registered trademark of HERCULEAN.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

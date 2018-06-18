@@ -93,6 +93,12 @@ button a, button a:hover, button a:focus {
     background-size: cover;
 }
 
+.flex-background {
+    display: flex;
+    min-height: 100%;
+    padding-bottom: 50px;
+}
+
 .pagination-text {
     font-size: 18px;
 }
@@ -149,6 +155,10 @@ footer a {
 }
 
 footer a:hover {
+    color: red;
+}
+
+footer a:focus {
     color: red;
 }
 
@@ -295,6 +305,10 @@ header.carousel .fill {
     font-size: 20px;
 }
 
+.info-page-header {
+    padding: 10px;
+}
+
 /* About Page */
 
 .about-section p {
@@ -306,18 +320,55 @@ header.carousel .fill {
     font-size: 35px;
 }
 
-.about-background {
-    display: flex;
-    min-height: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
 .about-layover {
     background: rgba(0,0,0,0.1);
     color: #fff;
 }
 
+#about-metal-paragraph {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Delivery Info Page */
+
+.country-list {
+    margin-bottom: 20px;
+}
+
+.country-active, .country-list:after {
+    content: '\002B';
+}
+
+.country-active:after {
+    content: '\2212';
+}
+
+#countries {
+    display: none;
+    padding-bottom: 10px;
+    font-family: 'Mina', sans-serif;
+    font-weight: bold;
+}
+
+.delivery-list {
+    margin-bottom: 20px;
+}
+
+.delivery-list li {
+    list-style-type: circle;
+    font-family: 'Mina', sans-serif;
+    font-weight: bold;
+}
+
+
+/* Club Herculean Page */
+
+.terms-list li {
+    list-style-type: lower-roman;
+    font-family: 'Mina', sans-serif;
+    /*font-weight: bold;*/
+}
 
 /* Accounts Pages (register, login, logout, profile etc) */
 
@@ -614,10 +665,7 @@ header.carousel .fill {
 }
 
 .cart-background {
-    display: flex;
-    min-height: 100%;
     padding-top: 50px;
-    padding-bottom: 50px;
 }
 
 .promo-code {
@@ -672,11 +720,6 @@ header.carousel .fill {
 }
 
 /* Checkout page */
-
-.radio-input {
-    padding: 20px;
-    border: 2px solid black;
-}
 
 #payment-form legend {
     font-family: life_is_okayregular, "Arial Black", sans-serif;

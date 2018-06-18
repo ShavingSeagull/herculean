@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block page_title %}Delivery Information{% endblock %}
+
+{% block content %}
+
+  <section class="flex-background">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="brand-text-header-white metal-bg info-page-header">Delivery Information</h2>
+
+          <h4 class="top-buffer">
+            Please find the most commonly asked questions regarding delivery below. If your enquiry isn't answered here,
+            please feel free to get in touch using the <a href="{% url 'contact' %}" class="default-anchor">contact</a> form.
+          </h4>
+
+          <h4 class="top-buffer">How much is delivery?</h4>
+          <p class="bold-text">
+            - Delivery is £1.20 (1.20 GBP) per item in the cart. This is irrespective of delivery destination. Delivery
+            charges are added after any discounts are deducted.
+          </p>
+
+          <h4 class="top-buffer">Do you deliver to any destination?</h4>
+          <p class="bold-text">
+            - In short, no, although we do deliver to almost 80 destinations. Unfortunately, we are unable to offer
+            direct delivery to all countries worldwide. Please click the + to open a list of countries we are able to
+            deliver to directly.
+          </p>
+          <button type="button" class="btn btn-info country-list" onclick="countryList()"></button>
+          <div id="countries">
+            <div class="row">
+              <!-- Could only display the list as it is in the Order model - a tuple of tuples. Decided to just list
+              them here manually -->
+              <ul class="col-sm-6">
+                <li>Albania</li>
+                <li>Algeria</li>
+                <li>Andorra</li>
+                <li>Argentina</li>
+                <li>Armenia</li>
+                <li>Australia</li>
+                <li>Austria</li>
+                <li>Azerbaijan</li>
+                <li>Belarus</li>
+                <li>Belgium</li>
+                <li>Bermuda</li>
+                <li>Bosnia</li>
+                <li>Brazil</li>
+                <li>Bulgaria</li>
+                <li>Canada</li>
+                <li>Chile</li>
+                <li>China</li>
+                <li>Colombia</li>
+                <li>Costa Rica/li>
+                <li>Croatia</li>
+                <li>Cyprus</li>
+                <li>Czech Republic</li>
+                <li>Denmark</li>
+                <li>Ecuador</li>
+                <li>Egypt</li>
+                <li>Estonia</li>
+                <li>Finland</li>
+                <li>France</li>
+                <li>Georgia</li>
+                <li>Germany</li>
+                <li>Greece</li>
+                <li>Guatemala</li>
+                <li>Honduras</li>
+                <li>Hungary</li>
+                <li>Iceland</li>
+                <li>India</li>
+                <li>Indonesia</li>
+                <li>Israel</li>
+                <li>Italy</li>
+                <li>Jamaica</li>
+              </ul>
+              <ul class="col-sm-6">
+                <li>Japan</li>
+                <li>Latvia</li>
+                <li>Liechtenstein</li>
+                <li>Lithuania</li>
+                <li>Luxembourg</li>
+                <li>Macedonia</li>
+                <li>Malaysia</li>
+                <li>Maldives</li>
+                <li>Malta</li>
+                <li>Mexico</li>
+                <li>Moldova</li>
+                <li>Monaco</li>
+                <li>Montenegro</li>
+                <li>Morocco</li>
+                <li>Netherlands</li>
+                <li>New Zealand</li>
+                <li>Norway</li>
+                <li>Peru</li>
+                <li>Philippines</li>
+                <li>Poland</li>
+                <li>Portugal</li>
+                <li>Republic of Korea</li>
+                <li>Romania</li>
+                <li>Russia</li>
+                <li>Serbia</li>
+                <li>Singapore</li>
+                <li>Slovakia</li>
+                <li>Slovenia</li>
+                <li>South Africa</li>
+                <li>Spain</li>
+                <li>Sweden</li>
+                <li>Switzerland</li>
+                <li>Thailand</li>
+                <li>Tunisia</li>
+                <li>Turkey</li>
+                <li>Ukraine</li>
+                <li>United Arab Emirates</li>
+                <li>United Kingdom</li>
+                <li>United States</li>
+              </ul>
+            </div>
+          </div>
+          <p class="bold-text">
+            If your country of residence isn't listed, don't worry! We have a great relationship with our friends
+            over at <a href="http://www.borderlinx.com" class="default-anchor" target="_blank">Borderlinx</a>. They
+            forward packages to over 60 countries worldwide, covering many of those that we cannot. Please get in touch
+            with them if you need to use their services for your delivery - they will be happy to help.
+          </p>
+
+          <h4 class="top-buffer">How long will my package take to arrive?</h4>
+          <p class="bold-text">
+            While we don't have a crystal ball to hand, our experience has taught us that on average the delivery times
+            are as follows:
+          </p>
+          <ul class="delivery-list">
+            <li>UK - 2-3 business days</li>
+            <li>Europe - 5-7 business days</li>
+            <li>Americas - 12-15 business days</li>
+            <li>Asia - 18-20 business days</li>
+            <li>Oceania - 14-16 business days</li>
+          </ul>
+          <p class="bold-text">
+            All of our products are packaged clearly for customs control, as we strive to get your items to you as
+            quickly as possible. Customs can be notoriously difficult at times, though, so please be patient if your
+            items haven't arrived by the time periods listed above.
+          </p>
+
+          <h4 class="top-buffer">Do you have a refund policy?</h4>
+          <p class="bold-text">
+            - We most certainly do. If there is an issue with your purchase, we will be happy to accommodate a replacement.
+            Please note, however, that any items of under-clothing are non-refundable unless they arrived in a damaged state.
+            When contacting us with your refund enquiry, please state the nature of the issue with the product thoroughly,
+            as we maintain a high level of quality and care while the items are stored with us and would like to immediately
+            highlight how and when the item could have gotten damaged.
+          </p>
+          <p class="bold-text">
+            You can contact us <a href="{% url 'contact' %}" class="default-anchor">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

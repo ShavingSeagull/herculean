@@ -32,3 +32,10 @@ function addRemoveClass() {
 $('.carousel').carousel({
       interval: 5000
 });
+
+// Script for the collapsing list of countries
+function countryList() {
+    $(".country-list").toggleClass("country-active");
+    $("#countries").slideToggle();
+}
+
