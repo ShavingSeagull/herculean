@@ -19,10 +19,10 @@ function addRemoveClass() {
 
     (function cartPicture() {
         if (windowWidth < 540) {
-            $('#quantity-form').addClass('col-xs-offset-2');
+            $('.quantity-form').addClass('col-xs-offset-2');
         }
         else {
-            $('#quantity-form').removeClass('col-xs-offset-2');
+            $('.quantity-form').removeClass('col-xs-offset-2');
         }
     })();
 }
