@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 import os
 
 
@@ -13,12 +14,20 @@ class Product(models.Model):
     )
 
     name = models.CharField(max_length=30, default='')
+    slug = models.SlugField(max_length=70, unique=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     choice = models.CharField(max_length=11, choices=CHOICES)
 
     def __str__(self):
         return self.name
+
+    # Custom save method to set the slug. Sets slug once on object creation to avoid broken links if title is changed
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+
+        super(Product, self).save(*args, **kwargs)
 
 
 def upload_image(instance, filename):

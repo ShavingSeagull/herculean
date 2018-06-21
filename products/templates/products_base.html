@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="base-bg">
+  <section class="base-bg">
     <div class="container">
       <div class="row">
-        <section class="col-md-3">
+        <div class="col-md-3">
           <p class="brand-text-red" style="font-size: 24px;">Product Range</p>
           <div class="list-group search-box">
             <form action="{% url 'search' %}" method="GET">
@@ -22,12 +22,12 @@
               <a href="{% url 'equipment' %}" class="list-group-item brand-text-black-no-shadow {% if url_name == 'equipment' %}products-active-link{% endif %}">Equipment</a>
             {% endwith %}
           </div>
-        </section>
+        </div>
         <div class="col-md-9">
           {% block product_content %}
           {% endblock %}
         </div>
       </div>
     </div>
-  </div>
+  </section>
 {% endblock %}

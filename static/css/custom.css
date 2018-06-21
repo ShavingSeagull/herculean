@@ -93,6 +93,10 @@ button a, button a:hover, button a:focus {
     background-size: cover;
 }
 
+.white-bg {
+    background-color: #fff;
+}
+
 .flex-background {
     display: flex;
     min-height: 100%;
@@ -654,6 +658,12 @@ header.carousel .fill {
     color: gold;
     font-size: 13px;
     margin-bottom: 15px;
+}
+
+.review-section {
+    padding: 20px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 /* Cart Page */

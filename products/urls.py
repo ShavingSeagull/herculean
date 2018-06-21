@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^supplements/$', products, name='supplements'),
     url(r'^accessories/$', products, name='accessories'),
     url(r'^equipment/$', products, name='equipment'),
-    url(r'^(?P<pk>\d+)/$', product_item, name='product-item'),
+    url(r'^(?P<slug>[\w-]+)/$', product_item, name='product-item'),
     url(r'^(?P<pk>\d+)/', include(reviews_urls)),
     #url(r'^reviews/', include(reviews_urls)),
 ]

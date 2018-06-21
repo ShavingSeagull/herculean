@@ -25,6 +25,15 @@ function addRemoveClass() {
             $('.quantity-form').removeClass('col-xs-offset-2');
         }
     })();
+
+    (function checkoutButton() {
+        if (windowWidth < 768) {
+            $('#checkout-button').addClass('btn-block');
+        }
+        else {
+            $('#checkout-button').removeClass('btn-block');
+        }
+    })();
 }
 
 

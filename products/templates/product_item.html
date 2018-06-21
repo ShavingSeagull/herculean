@@ -3,52 +3,51 @@
 
 {% block product_content %}
 
-  <section>
-    <div class="row">
-      <div class="thumbnail col-md-12">
-        <div id="item-description">
-          <img class="img-responsive" src="/media/{{ product.image.image }}" alt="Product Image">
-          <div class="caption-full">
-            <h2>{{ product.name }}</h2>
-            <h4>£{{ product.price }}</h4>
-            <form method="post" action="{% url 'add-to-cart' product.id %}">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input name='quantity' type="hidden" value="1">
-                    <span class="input-group-btn">
-                        <button class="btn btn-info" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
-                    </span>
-                </div>
-            </form>
-{#            <a href="{% url 'add-to-cart' product.id %}" class="btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>#}
-            <p class="top-buffer">{{ product.description }}</p>
-          </div>
-          <div class="ratings">
-            <p>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star-empty"></span>
-              <span class="mina-text" style="color: black;">4.0 stars</span>
-            </p>
-          </div>
+  <section class="row">
+    <div class="thumbnail col-md-12">
+      <div id="item-description">
+        <img class="img-responsive" src="/media/{{ product.image.image }}" alt="Product Image">
+        <div class="caption-full">
+          <h2>{{ product.name }}</h2>
+          <h4>£{{ product.price }}</h4>
+          <form method="post" action="{% url 'add-to-cart' product.id %}">
+            {% csrf_token %}
+            <div class="input-group">
+              <input name='quantity' type="hidden" value="1">
+              <span class="input-group-btn">
+                <button class="btn btn-info" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
+              </span>
+            </div>
+          </form>
+          <p class="top-buffer">{{ product.description }}</p>
+        </div>
+        <div class="ratings">
+          <p>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="mina-text" style="color: black;">4.0 stars</span>
+          </p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="panel panel-default row">
-      <div class="panel-heading">
-        <h4>Product Reviews</h4>
-      </div>
+  <section class="white-bg review-section row">
+    <div class="col-md-12">
+      <h3>Product Reviews</h3>
+      <hr>
 
       {% block review_content %}
-
       {% endblock %}
 
-      <div>
-        <a href="{% url 'add-review' product.id %}" class="btn btn-info">Leave a Review</a>
-      </div>
+      {% if user.is_authenticated %}
+        <div class="top-buffer">
+          <a href="{% url 'add-review' product.pk %}" class="btn btn-info">Leave a Review</a>
+        </div>
+      {% endif %}
     </div>
   </section>
 

@@ -49,11 +49,11 @@ def product_search(request):
     return render(request, "products_content.html", {'products': products})
 
 
-def product_item(request, pk):
+def product_item(request, slug):
     """
     Manages the in-depth view of an individual product.
     """
-    product = get_object_or_404(Product, pk=pk)
+    product = get_object_or_404(Product, slug=slug)
     product.save()
     return render(request, "product_item.html", {"product": product})
 

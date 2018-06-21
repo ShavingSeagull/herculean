@@ -37,15 +37,18 @@
 
       <div class="row top-buffer">
         <div class="col-xs-12 col-sm-5 col-md-4">
-          <form method="POST" class="promo-code">
-            {% csrf_token %}
-            <h3 class="promo-header">Have A Promo Code?</h3>
-            <input name="discount" type="text" class="promo-input" placeholder="Enter Code" />
-            <button type="submit" class="btn btn-info btn-circle"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
-            {% for message in messages %}
-              <p style="color: red;">{{ message }}</p>
-            {% endfor %}
-          </form>
+          <!-- Only allows discount code input if user is a member -->
+          {% if user.is_authenticated %}
+            <form method="POST" class="promo-code">
+              {% csrf_token %}
+              <h3 class="promo-header">Have A Promo Code?</h3>
+              <input name="discount" type="text" class="promo-input" placeholder="Enter Code" />
+              <button type="submit" class="btn btn-info btn-circle"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+              {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+              {% endfor %}
+            </form>
+          {% endif %}
         </div>
         <div id="cart-total" class="col-sm-offset-3 col-sm-4 col-md-offset-5 col-md-3">
           <p id="subtotal">Subtotal: £{{ subtotal }}</p>
@@ -56,11 +59,10 @@
           <p id="total"><strong>Total: £{{ total }}</strong></p>
         </div>
       </div>
-      {% if user.is_authenticated %}
-        <a href="{% url 'checkout' %}" class="btn btn-info btn-sm pull-right">To checkout <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-      {% else %}
-        <a href="#" class="btn btn-info btn-sm pull-right">Checkout as Guest <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-      {% endif %}
+        <a href="{% url 'checkout' %}" class="btn btn-info btn-sm pull-right" id="checkout-button">
+          {% if user.is_authenticated %}To checkout{% else %}Checkout as Guest{% endif %}
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </a>
     </div>
   </section>
 
