@@ -661,7 +661,7 @@ header.carousel .fill {
 }
 
 .review-section {
-    padding: 20px 10px;
+    padding: 20px 15px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -676,6 +676,7 @@ header.carousel .fill {
 
 .cart-background {
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .promo-code {

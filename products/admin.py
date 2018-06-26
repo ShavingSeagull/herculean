@@ -20,6 +20,6 @@ class ProductsAdmin(admin.ModelAdmin):
         ImageInline,
     ]
 
-    fields = ('name', 'description', 'price', 'choice')
+    fields = ('name', 'description', 'price', 'choice', 'product_sku')
 
 admin.site.register(Product, ProductsAdmin)

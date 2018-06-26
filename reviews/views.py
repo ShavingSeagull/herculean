@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.utils import timezone
 from products.models import Product
-from products.views import product_item
+#from products.views import product_item
 from .models import Review
 from .forms import ReviewForm
 
@@ -52,21 +52,21 @@ def review_content(request, pk):
 #             review_form = ReviewForm()
 #     else:
 #         messages.error(request, "You must be a member to post reviews.")
-#         return redirect(reverse(get_reviews))
+#         return redirect(reverse('get_reviews'))
 #
 #     args = {'review_form': review_form}
 #     return render(request, "add_review.html", args)
 
 
 @login_required
-def add_review(request, pk=None):
+def add_review(request, slug):
     """
     View for adding reviews via use of the ReviewForm.
     Utilises checks to ensure that only members can post
     reviews.
     """
     if request.user:
-        product = get_object_or_404(Product, pk=pk) if pk else None
+        product = get_object_or_404(Product, slug=slug) if slug else None
         if request.method == "POST":
             review_form = ReviewForm(request.POST)
             if review_form.is_valid():
@@ -76,7 +76,7 @@ def add_review(request, pk=None):
                 review_form.save()
 
                 messages.success(request, "Review posted successfully!")
-                return redirect(reverse('add-review'))
+                return redirect(reverse('product-item'))
         else:
             review_form = ReviewForm()
     else:

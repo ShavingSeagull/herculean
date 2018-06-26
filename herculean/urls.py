@@ -14,9 +14,9 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     # Base page
     url(r'^$', index, name="index"),
-    url(r'^about/$', about, name='about'),
-    url(r'^delivery-information/$', delivery_info, name='delivery-info'),
-    url(r'^club-herculean/$', club_herculean, name='club_herculean'),
+    url(r'^about$', about, name='about'),
+    url(r'^delivery-information$', delivery_info, name='delivery-info'),
+    url(r'^club-herculean$', club_herculean, name='club_herculean'),
     # Extended urls
     url(r'^contact/', include(contact_urls)),
     url(r'^accounts/', include(accounts_urls)),

@@ -45,7 +45,7 @@
 
       {% if user.is_authenticated %}
         <div class="top-buffer">
-          <a href="{% url 'add-review' product.pk %}" class="btn btn-info">Leave a Review</a>
+          <a href="{% url 'add-review' product.slug %}" class="btn btn-info">Leave a Review</a>
         </div>
       {% endif %}
     </div>
