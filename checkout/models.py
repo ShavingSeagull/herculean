@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from products.models import Product
 
 
@@ -85,6 +86,7 @@ class Order(models.Model):
         ('usa', 'United States'),
     )
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     full_name = models.CharField(max_length=50, blank=False)
     house_number = models.CharField(max_length=20, blank=False, verbose_name='House number/name')
     address1 = models.CharField(max_length=40, blank=False, verbose_name='Street')
@@ -94,6 +96,7 @@ class Order(models.Model):
     post_code = models.CharField(max_length=20, blank=False, verbose_name='Postal/Zip Code')
     country = models.CharField(max_length=20, blank=False, choices=COUNTRIES)
     phone_number = models.CharField(max_length=20, blank=False, verbose_name='Phone Number (needed for delivery)')
+    email = models.EmailField(null=True)
     date = models.DateField()
 
     def __str__(self):

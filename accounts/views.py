@@ -6,6 +6,7 @@ from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm
 from news.models import Post
 from promocodes.models import PromoCode
+from checkout.models import Order
 
 
 def index(request):
@@ -150,3 +151,12 @@ def get_current_codes(request):
     else:
         messages.error(request, "You have to be a member to see that.")
         return redirect(reverse(profile))
+
+
+# @login_required
+# def order_history(request):
+#     """
+#     Retrieves the order history of the user.
+#     """
+#     if request.user:
+#         order_list = Order.objects.filter()

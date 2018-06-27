@@ -59,10 +59,10 @@
           <p id="total"><strong>Total: £{{ total }}</strong></p>
         </div>
       </div>
-        <a href="{% url 'checkout' %}" class="btn btn-info btn-sm pull-right" id="checkout-button">
-          {% if user.is_authenticated %}To checkout{% else %}Checkout as Guest{% endif %}
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </a>
+      <a href="{% url 'checkout' %}" class="btn btn-info btn-sm pull-right" id="checkout-button">
+        {% if user.is_authenticated %}To checkout{% else %}Checkout as Guest{% endif %}
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </div>
   </section>
 
