@@ -6,7 +6,7 @@ from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm
 from news.models import Post
 from promocodes.models import PromoCode
-from checkout.models import Order
+from checkout.models import OrderLineItem
 
 
 def index(request):
@@ -148,15 +148,21 @@ def get_current_codes(request):
         page = request.GET.get('page')
         codes = paginator.get_page(page)
         return render(request, "promo_list.html", {'codes': codes})
-    else:
-        messages.error(request, "You have to be a member to see that.")
-        return redirect(reverse(profile))
+    # else:
+    #     messages.error(request, "You have to be a member to see that.")
+    #     return redirect(reverse(profile))
 
 
-# @login_required
-# def order_history(request):
-#     """
-#     Retrieves the order history of the user.
-#     """
-#     if request.user:
-#         order_list = Order.objects.filter()
+@login_required
+def order_history(request):
+    """
+    Retrieves the order history of the user.
+    """
+    if request.user:
+        order_list = OrderLineItem.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
+        paginator = Paginator(order_list, 6)
+
+        page = request.GET.get('page')
+        orders = paginator.get_page(page)
+        return render(request, "order_list.html", {'orders': orders})
+

@@ -1,0 +1,27 @@
+{% extends "profile_base.html" %}
+{% block page_title %}Order History{% endblock %}
+
+{% block profile_content %}
+
+  <section class="col-md-12">
+    <h1 class="brand-text-profile-header">{{ user.username }}'s Order History</h1>
+    <br>
+    <p class="bold-text">
+      Below are all of the orders you have placed, in date order from newest to oldest. If you have an
+      enquiry about any order you've placed, please visit the <a href="{% url 'contact' %}">contact</a> page
+      and drop us a message!
+    </p>
+    <div class="top-buffer">
+      {% if orders %}
+        {% for order in orders %}
+          <div class="row">
+            <article class="col-xs-9 col-sm-5 article-background">
+
+            </article>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+
+{% endblock %}

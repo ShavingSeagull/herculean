@@ -3,7 +3,8 @@ from .models import Order
 
 
 class MakePaymentForm(forms.Form):
-    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    # Range needs to be to 13 because Python drops the last number in the range
+    MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     YEAR_CHOICES = [(i, i) for i in range(2018, 2036)]
 
     credit_card_number = forms.CharField(label="Card number (no spaces)", required=False)

@@ -84,6 +84,10 @@ button a, button a:hover, button a:focus {
     margin-bottom: 40px;
 }
 
+.top-padding {
+    padding-top: 40px;
+}
+
 .button-spacing {
     margin: 20px 0;
 }
@@ -734,6 +738,10 @@ header.carousel .fill {
 
 #payment-form legend {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
+}
+
+.stripe-custom-error-message {
+    padding-left: 50px;
 }
 
 
