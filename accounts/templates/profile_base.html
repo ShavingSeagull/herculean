@@ -13,7 +13,7 @@
           <a href="{% url 'promocodes-list' %}" class="{% if url_name == 'promocodes-list' %}profile-active-link{% endif %}">Current Discount Codes</a>
         {% endif %}
         {% if not user.is_staff %}
-          <a href="#">Order History</a>
+          <a href="{% url 'order-history' %}">Order History</a>
           <a href="#">Payment Details</a>
           <a href="{% url 'promocodes-list' %}" class="{% if url_name == 'promocodes-list' %}profile-active-link{% endif %}">Discounts</a>
         {% endif %}

@@ -5,7 +5,7 @@
 {% block content %}
 
   <article class="container top-buffer">
-    <form method="POST" action="{% url 'add-review' %}">
+    <form method="POST" action="{% url 'add-review' slug %}">
       <fieldset class="form-group">
         <legend class="brand-text-header-black">Add a Review</legend>
         {% csrf_token %}

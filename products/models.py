@@ -17,7 +17,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=70, unique=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    product_sku = models.CharField(max_length=20, unique=True)
+    sku = models.CharField(max_length=20, unique=True)
     choice = models.CharField(max_length=11, choices=CHOICES)
 
     def __str__(self):

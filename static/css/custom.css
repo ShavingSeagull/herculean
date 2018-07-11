@@ -452,8 +452,16 @@ header.carousel .fill {
     color: #337ab7;
 }
 
-.discount-item {
-    margin-left: 20px;
+.profile-left-margin {
+    margin-left: 15px;
+}
+
+.order-anchor, .order-anchor:focus {
+    color: #333;
+}
+
+.order-anchor:hover {
+    color: red;
 }
 
 /* News Pages */
@@ -738,10 +746,6 @@ header.carousel .fill {
 
 #payment-form legend {
     font-family: life_is_okayregular, "Arial Black", sans-serif;
-}
-
-.stripe-custom-error-message {
-    padding-left: 50px;
 }
 
 

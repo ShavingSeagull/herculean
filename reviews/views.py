@@ -76,14 +76,16 @@ def add_review(request, slug):
                 review_form.save()
 
                 messages.success(request, "Review posted successfully!")
-                return redirect(reverse('product-item'))
+                # return redirect(reverse('product-item'))
+                return redirect('/products/' + slug)
         else:
             review_form = ReviewForm()
     else:
         messages.error(request, "You must be a member to post reviews.")
-        return redirect(reverse('product-item'))
+        # return redirect(reverse('product-item'))
+        return redirect('/products/' + slug)
 
-    args = {'review_form': review_form}
+    args = {'review_form': review_form, 'slug': slug}
     return render(request, "add_review.html", args)
 
 

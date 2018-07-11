@@ -15,11 +15,13 @@ def checkout(request):
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
+        now = timezone.now()
 
         if order_form.is_valid() and payment_form.is_valid():
             order = order_form.save(commit=False)
-            order.date = timezone.now()
+            order.date = now
             if request.user.is_authenticated:
+                order.user = request.user
                 order.email = request.user.email
             else:
                 email = request.POST.get('order-email')
@@ -27,7 +29,6 @@ def checkout(request):
 
             order.save()
 
-            now = timezone.now()
             cart = request.session.get("cart", {})
             code = request.session.get('discount', {})
             discount_total = Decimal(0)
@@ -40,6 +41,25 @@ def checkout(request):
                 category = product.choice
                 price_by_quantity = Decimal(quantity) * Decimal(product.price)
                 subtotal += price_by_quantity
+                item_total = price_by_quantity + shipping
+
+                # if code:
+                #     try:
+                #         promocode = PromoCode.objects.get(code__iexact=code,
+                #                                           start_date__lte=now,
+                #                                           expiry_date__gte=now,
+                #                                           active=True)
+                #
+                #         # Promo Codes can target specific product groups, like Protein products, or all products
+                #         # This checks if the Code type matches the product type, or whether it targets all products
+                #         if promocode.product_type == category or promocode.product_type == 'all':
+                #             discount = Decimal((promocode.discount * price_by_quantity) / Decimal(100)).quantize(Decimal('.01'))
+                #             discount_total += discount
+                #
+                #     except PromoCode.DoesNotExist:
+                #         pass
+
+                product_count += quantity
 
                 if code:
                     try:
@@ -53,18 +73,27 @@ def checkout(request):
                         if promocode.product_type == category or promocode.product_type == 'all':
                             discount = Decimal((promocode.discount * price_by_quantity) / Decimal(100)).quantize(Decimal('.01'))
                             discount_total += discount
+                            item_total = price_by_quantity - discount + shipping
 
                     except PromoCode.DoesNotExist:
-                        messages.error(request, "Promo Code is invalid")
+                        pass
 
-                product_count += quantity
-
-                order_line_item = OrderLineItem(
-                    order=order,
-                    product=product,
-                    quantity=quantity
-                )
-                order_line_item.save()
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                        promocode=code,
+                        total=item_total
+                    )
+                    order_line_item.save()
+                else:
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                        total=item_total
+                    )
+                    order_line_item.save()
 
             shipping *= product_count
             total = Decimal(subtotal - discount_total + shipping).quantize(Decimal('.01'))

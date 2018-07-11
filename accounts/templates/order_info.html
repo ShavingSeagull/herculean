@@ -1,0 +1,30 @@
+{% extends "profile_base.html" %}
+{% block page_title %}Order Details{% endblock %}
+
+{% block profile_content %}
+
+  <section class="col-md-9">
+    <article>
+      <h1 class="brand-text-header-black" style="font-size: 40px;">Order #: {{ order.id }}</h1>
+
+      <h4 class="top-buffer">Order date:</h4>
+      <p class="bold-text">{{ order.date }}</p>
+
+      <h4 class="top-buffer">Promo code used:</h4>
+      <p class="bold-text">{{ line_item.promocode }}</p>
+
+      <h4 class="top-buffer">Items ordered:</h4>
+
+      {% for item in line_item %}
+        <div class="row">
+          <p class="col-sm-2 col-md-3 bold-text">{{ item.product }}</p>
+          <p class="col-sm-1 col-md-1 bold-text">{{ item.quantity }}</p>
+        </div>
+      {% endfor %}
+
+      <h4 class="top-buffer">Total paid:</h4>
+      <p class="bold-text">£{{ order_total }}</p>
+    </article>
+  </section>
+
+{% endblock %}

@@ -6,7 +6,7 @@ from django.utils import timezone
 from .forms import UserLoginForm, UserRegistrationForm, UserForm, ProfileForm
 from news.models import Post
 from promocodes.models import PromoCode
-from checkout.models import OrderLineItem
+from checkout.models import Order, OrderLineItem
 
 
 def index(request):
@@ -159,10 +159,21 @@ def order_history(request):
     Retrieves the order history of the user.
     """
     if request.user:
-        order_list = OrderLineItem.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
+        order_list = Order.objects.filter(user=request.user, date__lte=timezone.now()).order_by('-date')
         paginator = Paginator(order_list, 6)
 
         page = request.GET.get('page')
         orders = paginator.get_page(page)
         return render(request, "order_list.html", {'orders': orders})
 
+
+@login_required
+def order_info(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    order.save()
+    order_total = 0
+    line_item = OrderLineItem.objects.filter(order=order)
+    for item in line_item:
+        order_total += item.total
+
+    return render(request, "order_info.html", {'order': order, 'line_item': line_item, 'order_total': order_total})

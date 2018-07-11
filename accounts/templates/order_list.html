@@ -8,19 +8,43 @@
     <br>
     <p class="bold-text">
       Below are all of the orders you have placed, in date order from newest to oldest. If you have an
-      enquiry about any order you've placed, please visit the <a href="{% url 'contact' %}">contact</a> page
-      and drop us a message!
+      enquiry about any order you've placed, please visit the <a href="{% url 'contact' %}" class="default-anchor">contact</a>
+      page and drop us a message!
     </p>
     <div class="top-buffer">
       {% if orders %}
         {% for order in orders %}
           <div class="row">
-            <article class="col-xs-9 col-sm-5 article-background">
-
+            <article class="col-xs-9 col-sm-5 article-background profile-left-margin">
+              <h4>Order #: {{ order.id }}</h4>
+              <p class="bold-text">Date: {{ order.date }}</p>
+              <a href="{% url 'order-info' order.pk %}" class="btn btn-sm btn-info" style="margin-bottom: 10px;">Read more</a>
             </article>
           </div>
         {% endfor %}
       {% endif %}
+    </div>
+
+    <div class="text-center">
+      <div class="pagination">
+        <span class="step-links mina-text pagination-text">
+          {% if orders.has_previous %}
+            <a href="?page=1" class="custom-anchor">&laquo; first</a>
+            <span>|</span>
+            <a href="?page={{ orders.previous_page_number }}" class="custom-anchor">previous</a>
+          {% endif %}
+
+          <span class="current">
+            Page {{ orders.number }} of {{ orders.paginator.num_pages }}.
+          </span>
+
+          {% if orders.has_next %}
+            <a href="?page={{ orders.next_page_number }}" class="custom-anchor">next</a>
+            <span>|</span>
+            <a href="?page={{ orders.paginator.num_pages }}" class="custom-anchor">last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
     </div>
   </section>
 

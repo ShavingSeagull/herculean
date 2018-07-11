@@ -1,6 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import Profile
 from products.models import Product
+from promocodes.models import PromoCode
 
 
 class Order(models.Model):
@@ -106,7 +107,9 @@ class Order(models.Model):
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, null=False)
     product = models.ForeignKey(Product,on_delete=models.CASCADE , null=False)
+    promocode = models.CharField(max_length=20, null=True)
+    total = models.DecimalField(max_digits=6, decimal_places=2, null=False)
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):
-        return "{0} {1} {2}".format(self.quantity, self.product.name, self.product.product_sku)
+        return "{0} {1} {2}".format(self.quantity, self.product.name, self.product.sku)
