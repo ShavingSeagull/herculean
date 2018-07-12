@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.urls import resolve
+from django.utils import timezone
 from .models import Product
+from reviews.models import Review
 
 def products(request):
     """
@@ -55,5 +57,22 @@ def product_item(request, slug):
     """
     product = get_object_or_404(Product, slug=slug)
     product.save()
-    return render(request, "product_item.html", {"product": product})
+
+    ratings = Review.objects.filter(product=product)
+    pos_total = 0
+    neg_total = 0
+
+    for score in ratings:
+        if score.rating == True:
+            pos_total += 1
+        else:
+            neg_total += 1
+
+    review_list = Review.objects.filter(product=product, created_date__lte=timezone.now()).order_by('-created_date')
+    paginator = Paginator(review_list, 3)
+
+    page = request.GET.get('page')
+    reviews = paginator.get_page(page)
+    return render(request, "product_item.html", {"product": product, "pos_ratings": pos_total,
+                                                 "neg_ratings": neg_total, "reviews": reviews})
 

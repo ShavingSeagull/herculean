@@ -627,11 +627,15 @@ header.carousel .fill {
     width: 100%;
 }
 
-.ratings {
+.ratings,
+.ratings-card {
     margin-top: 15px;
     padding-right: 10px;
     padding-left: 10px;
-    color: gold;
+}
+
+.ratings-card {
+    padding-top: 30px;
 }
 
 .thumbnail {
@@ -666,10 +670,21 @@ header.carousel .fill {
     padding: 20px;
 }
 
-.review-stars {
-    color: gold;
-    font-size: 13px;
+#item-review h4 {
+    font-size: 21px;
+}
+
+.review-thumb {
     margin-bottom: 15px;
+}
+
+.review-edit-anchor,
+.review-edit-anchor:focus {
+    color: #333;
+}
+
+.review-edit-anchor:hover {
+    color: red;
 }
 
 .review-section {

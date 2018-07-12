@@ -42,15 +42,7 @@
           <h4>£{{ product.price }}</h4>
           <p>{{ product.description | truncatewords:15 }}</p>
         </div>
-        <div class="ratings panel-footer">
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-        </div>
+        <div class="ratings-card panel-footer"></div>
       </div>
     </article>
   {% endfor %}

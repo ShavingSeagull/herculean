@@ -1,25 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
-from django.utils import timezone
 from products.models import Product
-#from products.views import product_item
 from .models import Review
 from .forms import ReviewForm
-
-def get_reviews(request):
-    """
-    View that displays list of reviews in
-    date order from newest to oldest.
-    """
-    review_list = Review.objects.filter(created_date__lte=timezone.now()).order_by('-published_date')
-    paginator = Paginator(review_list, 5)
-
-    page = request.GET.get('page')
-    reviews = paginator.get_page(page)
-    return render(request, "reviews.html", {'reviews': reviews})
-
 
 def review_content(request, pk):
     """
@@ -28,34 +12,6 @@ def review_content(request, pk):
     review = get_object_or_404(Review, pk=pk)
     review.save()
     return render(request, "review_content.html", {'review': review})
-
-
-# @login_required
-# def add_review(request):
-#     """
-#     View for adding reviews via use of the ReviewForm.
-#     Utilises checks to ensure that only members can post
-#     reviews.
-#     """
-#     if request.user:
-#         if request.method == "POST":
-#             review_form = ReviewForm(request.POST)
-#             if review_form.is_valid():
-#                 review = review_form.save(commit=False)
-#                 #review.product = request.product
-#                 review.author = request.user
-#                 review_form.save()
-#
-#                 messages.success(request, "Review posted successfully!")
-#                 return redirect(reverse('product-item'))
-#         else:
-#             review_form = ReviewForm()
-#     else:
-#         messages.error(request, "You must be a member to post reviews.")
-#         return redirect(reverse('get_reviews'))
-#
-#     args = {'review_form': review_form}
-#     return render(request, "add_review.html", args)
 
 
 @login_required
@@ -76,13 +32,11 @@ def add_review(request, slug):
                 review_form.save()
 
                 messages.success(request, "Review posted successfully!")
-                # return redirect(reverse('product-item'))
                 return redirect('/products/' + slug)
         else:
             review_form = ReviewForm()
     else:
         messages.error(request, "You must be a member to post reviews.")
-        # return redirect(reverse('product-item'))
         return redirect('/products/' + slug)
 
     args = {'review_form': review_form, 'slug': slug}
