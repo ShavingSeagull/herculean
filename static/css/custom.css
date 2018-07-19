@@ -375,7 +375,6 @@ header.carousel .fill {
 .terms-list li {
     list-style-type: lower-roman;
     font-family: 'Mina', sans-serif;
-    /*font-weight: bold;*/
 }
 
 /* Accounts Pages (register, login, logout, profile etc) */
@@ -552,7 +551,8 @@ header.carousel .fill {
     border-radius: 0 0 20px 20px;
 }
 
-.post-body > p {
+.post-body > p,
+.post-body > .review-body {
     padding: 20px 30px;
 }
 
@@ -569,10 +569,6 @@ header.carousel .fill {
     display: block;
 }
 
-.post-section-background {
-    background-image: url("../img/home/under-background.jpg");
-    background-size: cover;
-}
 
 /* Products page carousel */
 
@@ -678,12 +674,19 @@ header.carousel .fill {
     margin-bottom: 15px;
 }
 
+.review-delete-anchor {
+    margin-left: 5px;
+}
+
 .review-edit-anchor,
-.review-edit-anchor:focus {
+.review-edit-anchor:focus,
+.review-delete-anchor,
+.review-delete-anchor:focus {
     color: #333;
 }
 
-.review-edit-anchor:hover {
+.review-edit-anchor:hover,
+.review-delete-anchor:hover {
     color: red;
 }
 
@@ -691,6 +694,19 @@ header.carousel .fill {
     padding: 20px 15px;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+/* Review pages */
+
+.review-header-title {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.review-back-button {
+    margin-left: 30px;
 }
 
 /* Cart Page */

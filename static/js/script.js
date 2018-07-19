@@ -1,5 +1,5 @@
 // Script handling adding and removing of classes for certain viewport sizes
-window.onload = addRemoveClass();
+window.addEventListener("load", addRemoveClass);
 window.addEventListener("resize", addRemoveClass);
 
 
@@ -41,6 +41,7 @@ function addRemoveClass() {
 $('.carousel').carousel({
       interval: 5000
 });
+
 
 // Script for the collapsing list of countries
 function countryList() {
