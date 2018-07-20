@@ -38,7 +38,7 @@
               {% else %}
                 <img src="{% gravatar_url post.author.email %}" class="news-profile-image img-circle">
               {% endif %}
-              <span class="mina-text">BY {{ post.author.first_name }} | {{ post.published_date }}</span>
+              <span class="mina-text">BY <a href="{% url 'profiles' post.author.pk %}" class="news-author-anchor">{{ post.author.first_name }}</a> | {{ post.published_date }}</span>
             </div>
           </div>
         </div>

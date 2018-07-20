@@ -16,8 +16,12 @@
                 </figure>
               {% endif %}
               <div class="col-xs-12 col-sm-9">
-                <a href="{% url 'edit-post' post.slug %}" class="post-modification-buttons pull-right"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
-                <a class="post-modification-buttons pull-right" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+                <a href="{% url 'edit-post' post.slug %}" class="post-modification-buttons pull-right">
+                  <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                </a>
+                <a class="post-modification-buttons pull-right" data-toggle="modal" data-target="#deleteModal">
+                  <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                </a>
 
                 <!-- Modal -->
                 <div id="deleteModal" class="modal fade" role="dialog">
@@ -42,7 +46,9 @@
                 <!-- /Modal -->
 
                 <h5 class="tag-headline">{{ post.tag }}
-                  <h2 class="post-headline"><a href="{% url 'post-content' post.slug %}" class="news-anchor">{{ post.title }}</a></h2>
+                  <h2 class="post-headline">
+                    <a href="{% url 'post-content' post.slug %}" class="news-anchor">{{ post.title }}</a>
+                  </h2>
                 </h5>
                 <p>{{ post.content | truncatewords:25 }}</p>
                 <div class="bottom-news-buffer">

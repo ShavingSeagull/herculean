@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'accounts',
     'news',
     'products',
+    'profiles',
     'reviews',
     'promocodes',
     'cart',

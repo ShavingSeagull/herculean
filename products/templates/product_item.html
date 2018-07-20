@@ -56,7 +56,7 @@
                 {% endif %}
               </div>
               <p>{{ review.content | truncatewords:30 }}</p>
-              <small class="text-muted">Posted by {{ review.author }} on {{ review.created_date }}</small>
+              <small class="text-muted">Posted by <a href="{% url 'profiles' review.author.pk %}" class="review-user-anchor">{{ review.author }}</a> on {{ review.created_date }}</small>
             </div>
           </div>
           <hr>

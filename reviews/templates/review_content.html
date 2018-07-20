@@ -17,7 +17,9 @@
           <span class="mina-text">Posted by {{ review.author.username }} | {{ review.created_date }}</span>
         </div>
         <div class="post-body">
-          <a href="{{request.META.HTTP_REFERER}}" class="btn btn-info custom-anchor-white review-back-button"><i class="fa fa-caret-left" aria-hidden="true"></i> Back to Reviews</a>
+          <a href="{{request.META.HTTP_REFERER}}" class="btn btn-info custom-anchor-white review-back-button">
+            <i class="fa fa-caret-left" aria-hidden="true"></i> Back to Reviews
+          </a>
           {% if review.rating == 1 %}
             <p><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i> Recommended</p>
           {% else %}

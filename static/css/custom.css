@@ -463,6 +463,11 @@ header.carousel .fill {
     color: red;
 }
 
+.staff-tag {
+    color: red;
+    margin-left: 10px;
+}
+
 /* News Pages */
 
 #news-page-add-button {
@@ -554,6 +559,15 @@ header.carousel .fill {
 .post-body > p,
 .post-body > .review-body {
     padding: 20px 30px;
+}
+
+.news-author-anchor,
+.news-author-anchor:focus {
+    color: #555;
+}
+
+.news-author-anchor:hover {
+    color: red;
 }
 
 .disqus-comments {
@@ -687,6 +701,15 @@ header.carousel .fill {
 
 .review-edit-anchor:hover,
 .review-delete-anchor:hover {
+    color: red;
+}
+
+.review-user-anchor,
+.review-user-anchor:focus {
+    color: #777;
+}
+
+.review-user-anchor:hover {
     color: red;
 }
 
