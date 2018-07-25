@@ -10,7 +10,7 @@
         <br>
         {% csrf_token %}
         {{ user_form | as_bootstrap }}
-        <p><a href="#" class="mina-text custom-anchor">Forgotten your password?</a></p>
+        <p><a href="{% url 'password_reset' %}" class="mina-text custom-anchor">Forgotten your password?</a></p>
         <br>
         <button type="submit" class="btn btn-info">Login</button>
       </fieldset>

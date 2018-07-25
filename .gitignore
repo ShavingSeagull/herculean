@@ -1,9 +1,7 @@
 *.sqlite3
 *.pyc
-TODO.txt
 env.py
 .idea/
 .__pycache__/
 migrations/
-static/img/news/
 media/

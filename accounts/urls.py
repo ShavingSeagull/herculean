@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-#from . import urls_reset
+from . import urls_reset
 from .views import (register, profile, edit_profile,
                     get_user_posts, delete_user_post,
                     get_current_codes, logout, login,
@@ -17,5 +17,5 @@ urlpatterns = [
     url(r'^promocodes-list$', get_current_codes, name='promocodes-list'),
     url(r'^logout$', logout, name='logout'),
     url(r'^login$', login, name='login'),
-    #url(r'^password-reset/', include(urls_reset)),
+    url(r'^password-reset/', include(urls_reset)),
 ]
