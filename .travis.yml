@@ -1,8 +1,13 @@
 language: python
+
 python:
 - "3.6"
+
+env:
+  global:
+    - BUILD_ON_TRAVIS=true
+
 install: "pip install -r requirements.txt"
-before_script:
-- SECRET_KEY="whatever"
+
 script:
 - ./manage.py test
