@@ -6,7 +6,7 @@
   <section class="row">
     <div class="thumbnail col-md-12">
       <div id="item-description">
-        <img class="img-responsive" src="/media/{{ product.image.image }}" alt="Product Image">
+        <img class="img-responsive" src="{{ MEDIA_URL }}{{ product.image.image }}" alt="Product Image">
         <div class="caption-full">
           <h2>{{ product.name }}</h2>
           <h4>£{{ product.price }}</h4>

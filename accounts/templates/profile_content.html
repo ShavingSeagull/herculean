@@ -7,7 +7,7 @@
     <div class="row top-buffer">
       <figure class="col-sm-4">
         {% if user.profile.profile_pic %}
-          <img src="/media/{{ user.profile.profile_pic }}" class="profile-picture img-responsive">
+          <img src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}" class="profile-picture img-responsive">
         {% else %}
           <img src="{% gravatar_url post.author.email %}" class="profile-picture img-responsive">
         {% endif %}

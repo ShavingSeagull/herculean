@@ -36,7 +36,7 @@
   {% for product in products %}
     <article class="col-sm-6 col-md-4">
       <div class="thumbnail product-thumbnail">
-        <img src="/media/{{ product.image.image }}" alt="Product Image">
+        <img src="{{ MEDIA_URL }}{{ product.image.image }}" alt="Product Image">
         <div class="caption">
           <h4><a href="{% url 'product-item' product.slug %}">{{ product.name }}</a></h4>
           <h4>£{{ product.price }}</h4>

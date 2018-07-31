@@ -19,9 +19,11 @@
       {% for item in cart_items %}
         <div class="row">
           <div class="col-xs-2" id="cart-image">
-            <img src="/media/{{ item.product.image.image }}" class="cart-image img-responsive" />
+            <img src="{{ MEDIA_URL }}{{ item.product.image.image }}" class="cart-image img-responsive" />
           </div>
-          <div class="col-xs-2"><p style="font-size: 16px;"><strong>{{ item.product.name }}</strong></p></div>
+          <div class="col-xs-2">
+            <p style="font-size: 16px;"><strong>{{ item.product.name }}</strong></p>
+          </div>
           <form method="POST" action="{% url 'adjust-cart' item.product.id %}" class="col-xs-4 quantity-form" id="quantity-form">
             {% csrf_token %}
             <div class="form-group">

@@ -2,131 +2,131 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block page_title %}{% endblock %}</title>
+    <title>{% block page_title %}{% endblock %}</title>
 
-  <!-- For IE up to IE9 -->
-  <!--[if IE]><link rel="shortcut icon" href="{% static 'img/base/logo-ico.ico' %}"><![endif]-->
+    <!-- For IE up to IE9 -->
+    <!--[if IE]><link rel="shortcut icon" href="{% static 'img/base/logo-ico.ico' %}"><![endif]-->
 
-  <link rel="apple-touch-icon-precomposed" href="{% static 'img/base/logo-apple-touch.png' %}">
-  <link rel="icon" type="image/png" href="{% static 'img/base/logo.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/base/logo-apple-touch.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'img/base/logo.png' %}">
 
-  <!-- Bootstrap Core CSS -->
-  <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 
-  <!-- Custom font from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
+    <!-- Custom font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
 
-  <!-- jQuery -->
-  <script src="{% static 'js/jquery/jquery.js' %}"></script>
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery/jquery.js' %}"></script>
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
 
-  <!-- Custom script -->
-  <script src="{% static 'js/script.js' %}"></script>
+    <!-- Custom script -->
+    <script src="{% static 'js/script.js' %}"></script>
 
-  {% block head_js %}
-  {% endblock %}
-</head>
+    {% block head_js %}
+    {% endblock %}
+  </head>
 
-<body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsible-navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand brand-text-nav" href="{% url 'index' %}">Herculean</a>
-      </div>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsible-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand brand-text-nav" href="{% url 'index' %}">Herculean</a>
+        </div>
 
-      <div class="collapse navbar-collapse" id="collapsible-navbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product Range <i class="caret"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="{% url 'protein' %}">Protein</a></li>
-              <li><a href="{% url 'creatine' %}">Creatine</a></li>
-              <li><a href="{% url 'amino_acids' %}">Amino Acids</a></li>
-              <li><a href="{% url 'supplements' %}">Vitamins & Supplements</a></li>
-              <li><a href="{% url 'accessories' %}">Accessories</a></li>
-              <li><a href="{% url 'equipment' %}">Equipment</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="{% url 'news' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Fitness News</a>
-          </li>
-          {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="collapsible-navbar">
+          <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <i class="caret"></i></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product Range <i class="caret"></i></a>
               <ul class="dropdown-menu">
-                <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i> View Account</a></li>
-                <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log-Out</a></li>
+                <li><a href="{% url 'protein' %}">Protein</a></li>
+                <li><a href="{% url 'creatine' %}">Creatine</a></li>
+                <li><a href="{% url 'amino_acids' %}">Amino Acids</a></li>
+                <li><a href="{% url 'supplements' %}">Vitamins & Supplements</a></li>
+                <li><a href="{% url 'accessories' %}">Accessories</a></li>
+                <li><a href="{% url 'equipment' %}">Equipment</a></li>
               </ul>
             </li>
             <li>
-              <a href="{% url 'view-cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-                {% if product_count > 0 %}
-                  <label class="badge badge-warning">{{ product_count }}</label>
-                {% endif %}
-              </a>
+              <a href="{% url 'news' %}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Fitness News</a>
             </li>
-          {% else %}
-            <li>
-              <a href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log-In</a>
-            </li>
-            <li>
-              <a href="{% url 'view-cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-                {% if product_count > 0 %}
-                  <label class="badge badge-warning">{{ product_count }}</label>
-                {% endif %}
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  {% block content %}
-  {% endblock %}
-
-  <!-- Footer -->
-  <footer>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-          <p class="footer-text"><span style="color: white">The Boring Bit...</span></p>
-          <ul>
-            <li><a href="{% url 'about' %}">About Us</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-            <li><a href="{% url 'delivery-info' %}">Delivery Information</a></li>
-            <li><a href="{% url 'club_herculean' %}">Club Herculean</a></li>
+            {% if user.is_authenticated %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <i class="caret"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'profile' %}"><i class="fa fa-user" aria-hidden="true"></i> View Account</a></li>
+                  <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log-Out</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="{% url 'view-cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                  {% if product_count > 0 %}
+                    <label class="badge badge-warning">{{ product_count }}</label>
+                  {% endif %}
+                </a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log-In</a>
+              </li>
+              <li>
+                <a href="{% url 'view-cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                  {% if product_count > 0 %}
+                    <label class="badge badge-warning">{{ product_count }}</label>
+                  {% endif %}
+                </a>
+              </li>
+            {% endif %}
           </ul>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <hr>
-          <p>&copy; HERCULEAN - <a href="https://github.com/ShavingSeagull" target="_blank">Scott Kipp</a> 2018</p>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <p class="footer-text"><span style="color: white">The Boring Bit...</span></p>
+            <ul>
+              <li><a href="{% url 'about' %}">About Us</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              <li><a href="{% url 'delivery-info' %}">Delivery Information</a></li>
+              <li><a href="{% url 'club_herculean' %}">Club Herculean</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <hr>
+            <p>&copy; HERCULEAN - <a href="https://github.com/ShavingSeagull" target="_blank">Scott Kipp</a> 2018</p>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-</body>
+  </body>
 </html>

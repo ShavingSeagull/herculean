@@ -10,7 +10,7 @@
         <div class="review-header-title">
           <h1>{{ review.title }}</h1>
           {% if review.author.profile.profile_pic %}
-            <img src="/media/{{ review.author.profile.profile_pic }}" class="news-profile-image img-circle">
+            <img src="{{ MEDIA_URL }}{{ review.author.profile.profile_pic }}" class="news-profile-image img-circle">
           {% else %}
             <img src="{% gravatar_url review.author.email %}" class="news-profile-image img-circle">
           {% endif %}

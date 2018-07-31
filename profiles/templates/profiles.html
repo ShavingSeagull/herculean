@@ -5,34 +5,34 @@
 {% block content %}
 
   <section class="metal-bg flex-background cart-background">
-  <div class="container cart-section">
-    <div class="row">
-      <div class="col-md-9">
-        <h1 class="brand-text-header-black info-page-header">{{ user_info.username }}'s Profile</h1>
-        {% if user_info.is_staff %}
-          <h4 class="staff-tag">Staff Member</h4>
-        {% endif %}
+    <div class="container cart-section">
+      <div class="row">
+        <div class="col-md-9">
+          <h1 class="brand-text-header-black info-page-header">{{ user_info.username }}'s Profile</h1>
+          {% if user_info.is_staff %}
+            <h4 class="staff-tag">Staff Member</h4>
+          {% endif %}
 
-        <div class="row top-buffer">
-          <figure class="col-sm-4 col-lg-3">
-            {% if user_info.profile.profile_pic %}
-              <img src="/media/{{ user_info.profile.profile_pic }}" class="profile-picture img-responsive">
-            {% else %}
-              <img src="{% gravatar_url user_info.email %}" class="profile-picture img-responsive">
-            {% endif %}
-          </figure>
-          <div class="col-sm-8 col-lg-9">
-            <p><strong>Name: </strong>{{ user_info.first_name }}</p>
-            <p><strong>Date joined: </strong>{{ user_info.date_joined }}</p>
-            <p><strong>Last login: </strong>{{ user_info.last_login }}</p>
-            <p><strong>Location: </strong>{{ user_info.profile.location }}</p>
-            <br>
-            <p><strong>About me: </strong>{{ user_info.profile.bio }}</p>
+          <div class="row top-buffer">
+            <figure class="col-sm-4 col-lg-3">
+              {% if user_info.profile.profile_pic %}
+                <img src="{{ MEDIA_URL }}{{ user_info.profile.profile_pic }}" class="profile-picture img-responsive">
+              {% else %}
+                <img src="{% gravatar_url user_info.email %}" class="profile-picture img-responsive">
+              {% endif %}
+            </figure>
+            <div class="col-sm-8 col-lg-9">
+              <p><strong>Name: </strong>{{ user_info.first_name }}</p>
+              <p><strong>Date joined: </strong>{{ user_info.date_joined }}</p>
+              <p><strong>Last login: </strong>{{ user_info.last_login }}</p>
+              <p><strong>Location: </strong>{{ user_info.profile.location }}</p>
+              <br>
+              <p><strong>About me: </strong>{{ user_info.profile.bio }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </section>
 
 {% endblock %}

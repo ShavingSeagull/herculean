@@ -9,12 +9,12 @@
     <article class="container">
       <div class="col-md-offset-2 col-md-8">
         <figure class="post-header">
-          <img src="/media/{{ post.image }}" class="post-header-image img-responsive between-phone-tab-hidden">
+          <img src="{{ MEDIA_URL }}{{ post.image }}" class="post-header-image img-responsive between-phone-tab-hidden">
           <div class="post-header-title">
             <h4><span style="color: red;">{{ post.tag }}</span></h4>
             <h1>{{ post.title }}</h1>
             {% if post.author.profile.profile_pic %}
-              <img src="/media/{{ post.author.profile.profile_pic }}" class="news-profile-image img-circle">
+              <img src="{{ MEDIA_URL }}{{ post.author.profile.profile_pic }}" class="news-profile-image img-circle">
             {% else %}
               <img src="{% gravatar_url post.author.email %}" class="news-profile-image img-circle">
             {% endif %}
