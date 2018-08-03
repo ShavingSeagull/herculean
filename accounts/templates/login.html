@@ -2,18 +2,20 @@
 {% load bootstrap_tags %}
 {% block page_title %}Login{% endblock %}
 {% block content %}
-  <section class="container accounts-section">
-    <form method="POST" action="{% url 'login' %}?next={{ next }}" class="col-md-7">
-      <fieldset class="form-group">
-        <legend class="brand-text-header-black">Login</legend>
-        <p class="brand-text-black">Get the <span class="brand-text-red-light-bg">HERCULEAN</span> experience!</p>
-        <br>
-        {% csrf_token %}
-        {{ user_form | as_bootstrap }}
-        <p><a href="{% url 'password_reset' %}" class="mina-text custom-anchor">Forgotten your password?</a></p>
-        <br>
-        <button type="submit" class="btn btn-info">Login</button>
-      </fieldset>
-      </form>
+  <section class="flex-background accounts-section">
+    <div class="container">
+      <form method="POST" action="{% url 'login' %}?next={{ next }}" class="col-md-7">
+        <fieldset class="form-group">
+          <legend class="brand-text-header-black">Login</legend>
+          <p class="brand-text-black">Get the <span class="brand-text-red-light-bg">HERCULEAN</span> experience!</p>
+          <br>
+          {% csrf_token %}
+          {{ user_form | as_bootstrap }}
+          <p><a href="{% url 'password_reset' %}" class="mina-text custom-anchor">Forgotten your password?</a></p>
+          <br>
+          <button type="submit" class="btn btn-info">Login</button>
+        </fieldset>
+        </form>
+    </div>
   </section>
 {% endblock %}

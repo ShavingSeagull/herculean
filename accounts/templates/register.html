@@ -2,17 +2,19 @@
 {% load bootstrap_tags %}
 {% block page_title %}Register{% endblock %}
 {% block content %}
-  <section class="container accounts-section">
-    <form method="POST" action="{% url 'register' %}" class="col-md-7">
-      <fieldset class="form-group">
-        <legend class="brand-text-header-black">Create a new account</legend>
-        <p class="brand-text-black">Already got an account? <a href="{% url 'login' %}" class="brand-text-red-light-bg">Sign In</a></p>
-        <br>
-        {% csrf_token %}
-        {{ user_form | as_bootstrap }}
-        <br>
-        <button type="submit" class="btn btn-info">Create account</button>
-      </fieldset>
-    </form>
+  <section class="flex-background accounts-section">
+    <div class="container">
+      <form method="POST" action="{% url 'register' %}" class="col-md-7">
+        <fieldset class="form-group">
+          <legend class="brand-text-header-black">Create a new account</legend>
+          <p class="brand-text-black">Already got an account? <a href="{% url 'login' %}" class="brand-text-red-light-bg">Sign In</a></p>
+          <br>
+          {% csrf_token %}
+          {{ user_form | as_bootstrap }}
+          <br>
+          <button type="submit" class="btn btn-info">Create account</button>
+        </fieldset>
+      </form>
+    </div>
   </section>
 {% endblock %}

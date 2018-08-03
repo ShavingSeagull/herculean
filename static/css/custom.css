@@ -550,7 +550,6 @@ header.carousel .fill {
     padding-top: 40px;
     margin-bottom: 150px;
     font-size: 14px;
-    font-weight: bold;
     line-height: 1.6;
     background-color: white;
     border-radius: 0 0 20px 20px;
@@ -803,12 +802,6 @@ header.carousel .fill {
 }
 
 
-/* 404 Page Styles */
-
-.error-404 {
-    font-size: 100px;
-}
-
 /* Responsive Styles */
 
 /* Min width */
@@ -922,6 +915,10 @@ header.carousel .fill {
 }
 
 @media(min-width:1200px) {
+    .brand-heading {
+        font-size: 80px !important;
+    }
+
     .bottom-news-buffer {
         margin-bottom: 0;
     }
