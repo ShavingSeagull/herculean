@@ -43,22 +43,6 @@ def checkout(request):
                 subtotal += price_by_quantity
                 item_total = price_by_quantity + shipping
 
-                # if code:
-                #     try:
-                #         promocode = PromoCode.objects.get(code__iexact=code,
-                #                                           start_date__lte=now,
-                #                                           expiry_date__gte=now,
-                #                                           active=True)
-                #
-                #         # Promo Codes can target specific product groups, like Protein products, or all products
-                #         # This checks if the Code type matches the product type, or whether it targets all products
-                #         if promocode.product_type == category or promocode.product_type == 'all':
-                #             discount = Decimal((promocode.discount * price_by_quantity) / Decimal(100)).quantize(Decimal('.01'))
-                #             discount_total += discount
-                #
-                #     except PromoCode.DoesNotExist:
-                #         pass
-
                 product_count += quantity
 
                 if code:

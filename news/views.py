@@ -45,7 +45,6 @@ def add_post(request):
                 post.author = request.user
                 post_form.save()
 
-                messages.success(request, "News item posted successfully!")
                 return redirect(reverse(get_posts))
         else:
             post_form = BlogPostForm()
@@ -89,7 +88,6 @@ def delete_post(request, slug=None):
         post = get_object_or_404(Post, slug=slug) if slug else None
         post.delete()
 
-        messages.success(request, "Post deleted successfully.")
         return redirect(reverse(get_posts))
     else:
         messages.error(request, "Only staff members can delete posts.")

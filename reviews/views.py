@@ -33,7 +33,6 @@ def add_review(request, slug, pk=None):
                 review.author = request.user
                 review_form.save()
 
-                messages.success(request, "Review posted successfully!")
                 return redirect('/products/' + slug)
         else:
             review_form = ReviewForm()
@@ -78,7 +77,6 @@ def delete_review(request, slug, pk=None):
         review = get_object_or_404(Review, pk=pk) if pk else None
         review.delete()
 
-        messages.success(request, "Review deleted successfully.")
         return redirect('/products/' + slug)
     else:
         return redirect(reverse(index))
