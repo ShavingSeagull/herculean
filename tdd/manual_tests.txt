@@ -1,0 +1,332 @@
+HERCULEAN MANUAL TEST
+
+
+I. NAVIGATION
+
+a) Do the navigation links change to red when hovered?
+   - Yes/Pass
+
+b) Does the 'Products' and 'Account' links drop down when clicked?
+   - Yes/Pass
+
+c) Does the navigation menu collapse when the screen is under a certain size?
+   - Yes/Pass
+
+d) Do the FontAwesome images appear on all major browsers?
+   - Yes/Pass
+
+e) Do the 'active' links on the 'accounts' and 'products' section remain highlighted
+   in red while the user is on the matching url?
+   - Yes/Pass
+
+f) Does the list of sub-links in the 'accounts' section differ according to the staff 
+   status of the logged-in user?
+   - Yes/Pass
+
+
+II. RESPONSIVENESS
+
+a) Does the layout change in accordance with Bootstrap's column system?
+   - Yes/Pass
+
+b) Do images hide on blog posts when viewed on small screens?
+   - Yes/Pass
+
+c) Does the sub-nav bar move from left to top in the accounts section when viewed
+   on smaller screens?
+   - Yes/Pass
+
+d) Do images on blogs and accounts scale for different screen sizes?
+   - Yes/Pass
+
+e) Does the layout of products change from three in a row, to a stacked version on
+   smaller screens?
+   - Yes/Pass
+
+f) Does the custom font for headlines spill over the edge of the screen when scaled down?
+   - No/Pass
+
+
+III. ACCOUNTS
+
+a) Does the ability to register with the site work correctly when the form is filled out entirely
+   and with unique credentials?
+   - Yes/Pass
+
+b) Does the registration form allow the choice of non-unique username and/or emails?
+   - No/Pass
+
+c) Does the ability to login to an account work when provided the correct credentials?
+   - Yes/Pass
+
+d) Does the ability to login work when provided the incorrect credentials?
+   - No/Pass
+
+e) Does the user have the ability to register a new account while already logged in?
+   - No/Pass
+
+f) Does the 'Forgot your password' link provide the ability to reset your password?
+   (Up to the point of notifying the user that an email has been sent)
+   - Yes/Pass
+
+g) Can the user successfully edit their profile from the 'accounts' section?
+   - Yes/Pass
+
+h) Can a staff member create a blog post directly from the 'accounts' section?
+   - Yes/Pass
+
+i) Can staff members review their list of blog posts from their account?
+   - Yes/Pass
+
+j) Do the fast-links for editing and deleting blog posts work for staff members?
+   - Yes/Pass
+
+k) Does the list of current, active discount codes display for staff with admin privileges?
+   - Yes/Pass
+
+
+IV. FITNESS POSTS
+
+a) Does the 'Add a Post' button appear for staff members only?
+   - Yes/Pass
+
+b) Does the Pagination module create multiple pages to divide posts and prevent one long list?
+   - Yes/Pass
+
+c) Do the post pictures disappear when the screen is under a certian size?
+   - Yes/Pass
+
+d) Does the title/truncated content/author overlap the picture as the screen changes size?
+   - No/Pass
+
+e) Does the Bootstrap grid system maintain the correct aesthetic on differing screen sizes,
+   especially concerning large screens?
+   - Yes/Pass
+
+f) Does Disqus commenting work properly on every post?
+   - Yes/Pass
+
+
+V. PRODUCTS
+
+a) Does the 'active' link work properly for the sub-nav bar?
+   - Yes/Pass
+
+b) Do the products appear, via Bootstrap, in a maximum of three to a row?
+   - Yes/Pass
+
+c) Do the products appear, via Bootstrap, in a block structure, stacked on top of each other
+   on smaller screens?
+   - Yes/Pass
+
+d) Are there any issues, overlapping or incorrect Bootstrap columns at ANY screen size?
+   - No/Pass
+
+e) Does the sub-nav bar sit at the top of the screen, above the products, when on smaller screens?
+   - Yes/Pass
+
+f) Does the carousel disappear on smaller screens?
+   - Yes/Pass
+
+g) Does the search functionality operate correctly generally?
+   - Yes/Pass
+
+h) Does the search functionality work correctly when providing only part of a search term,
+   such as a single character or a small portion of the required characters?
+   - Yes/Pass
+
+i) Does the search functionality return all products when used with a blank input field?
+   - Yes/Pass
+
+j) Do any errors occur when the search functionality is used with an empty input field?
+   - No/Pass
+
+k) Do any errors occur with the rest of the search functionality?
+   - No/Pass
+
+l) Does the search functionality return any incorrect results - results that shouldn't match
+   the search criteria?
+   - No/Pass
+
+m) Does Pagination handle excessive amounts of products in a single product type, to avoid one 
+   long list on the page?
+   - Yes/Pass
+
+n) Does the layout for each indivdual product sit correctly and scale correctly between varying
+   screen sizes?
+   - Yes/Pass
+
+o) Does the 'Add to Cart' button correctly add the product to the cart?
+   - Yes/Pass
+
+p) Does the score showing the number of thumbs-up and thumbs-down reviews display the correct results?
+   - Yes/Pass
+
+
+VI. REVIEWS
+
+a) Does the 'Leave a Review' button appear ONLY for members who are logged-in?
+   - Yes/Pass
+
+b) Does Pagination limit the number of reviews on a single page?
+   - Yes/Pass
+
+c) Are users able to edit reviews they have previously left?
+   - Yes/Pass
+
+d) Do reviews update on the site immediately when left or edited?
+   - Yes/Pass
+
+e) Does the form validation prevent users from submitting an incomplete review form?
+   - Yes/Pass
+
+f) Do the quick links for editing and deleting reviews appear for the review's author?
+   - Yes/Pass
+
+g) Does the review sit correctly within the layout of the indivdual product page, including when
+   switching screen sizes?
+   - Yes/Pass
+
+h) Does the review content truncate when over a certain word limit?
+   - Yes/Pass
+
+i) Do the individual reviews scale correctly, using Bootstrap, when viewed on differing screen sizes?
+   - Yes/Pass
+
+j) Does the 'Back to Reviews' button function correctly?
+   - Yes/Pass
+
+
+VII. CART
+
+a) Does the Promo Code input box appear ONLY for users who are logged-in?
+   - Yes/Pass
+
+b) Does the site redirect to the cart page after adding something to the cart from the products page?
+   - Yes/Pass
+
+c) Does the badge update next to the cart link on the nav-bar when products are added to the cart?
+   - Yes/Pass
+
+d) Do the product thumbnails disappear on smaller screens?
+   - Yes/Pass
+
+e) Do the Bootstrap columns correctly keep the headers and the content properly aligned?
+   - Yes/Pass
+
+f) Does overlapping continue to occur when moving between smaller screen sizes?
+   - No/Pass
+
+g) Does the 'Checkout' button change to a block style on smaller screens?
+   - Yes/Pass
+
+h) Does the Promo Code functionality work correctly, generally?
+   - Yes/Pass
+
+i) Issues with discounts throughout production have included: 
+   - only applying to the first item in the cart
+   - incorrect math logic causing unwanted results
+   - discounts being applied multiple times to the same item
+
+   i) Have these issues been tested thoroughly after their correction?
+      - Yes
+   ii) Do these issues continue to occur in ANY way whatsoever?
+       - No/Pass
+
+j) The updated total, including a discount, previously didn't carry over to the checkout screen.
+   Does this still occur?
+   - No/Pass
+
+k) Can ONLY one discount code be applied to a cart per transaction?
+   - Yes/Pass
+
+l) Does the discount code get passed to the Stripe dashboard (via Metadata) when reviewing account activity?
+   - Yes/Pass
+
+m) Does the delete button successfully remove items from the cart?
+   - Yes/Pass
+
+n) When changing the quantity for an item, does the update button work correctly?
+   - Yes/Pass
+
+o) Does the discount remain applied, as well as update for the new amount, when changing the
+   quantity of an item?
+   - Yes/Pass
+
+
+VIII. CHECKOUT
+
+a) Does the checkout screen display correctly, using Bootstrap to arrange the delivery and card forms?
+   - Yes/Pass
+
+b) Does the layout scale correctly for smaller screen sizes?
+   - Yes/Pass
+
+c) Does the cart total and number of items display the correct amounts?
+   - Yes/Pass
+
+d) Does the form allow submission when card details are omitted?
+   - No/Pass
+
+e) Does the form validation allow required fields to be left blank for the delivery address?
+   - No/Pass
+
+f) If all valid, does the form submit successfully?
+   - Yes/Pass
+
+g) Does the site redirect to an 'Order Successful' screen and display the order number?
+   - Yes/Pass
+
+h) Does the cart successfully empty itself when the checkout process has been completed?
+   - Yes/Pass
+
+i) Does the badge next to the cart link in the nav-bar update to show nothing when the checkout
+   process is completed?
+   - Yes/Pass
+
+
+IX. DATABASE
+
+a) Do the following items:
+   - users
+   - users' profile info
+   - fitness posts
+   - products
+   - reviews
+   - promo codes
+   
+   ...add to the database properly upon their creation?
+   - Yes/Pass
+
+b) Do the items above also update on the database when edited through the site?
+   - Yes/Pass
+
+c) Do the items above delete properly when removed through the site?
+   - Yes/Pass
+
+d) Do any conflicts occur between related items (eg. users and posts) when one is deleted?
+   - No/Pass
+
+e) Does the database load and function correctly via Postgres when used live?
+   - Yes/Pass
+
+f) Does the database default to SQLite when an error occurs with Postgres?
+   - Yes/Pass
+
+
+X. MISCELLANEOUS
+
+a) Do all Media files upload to AWS's S3 when uploaded on the site by the user?
+   - Yes/Pass
+
+b) Does S3 serve all of the site's Static files successfully?
+   - Yes/Pass
+
+c) Do user-uploaded Media files successfully divert to the user's own folder on S3?
+   - Yes/Pass
+
+d) Do Post images, uploaded by staff, successfully divert to their own folder, arranged by date on S3?
+   - Yes/Pass
+
+e) Does the contact form operate correctly and send to the email address specified?
+   - Yes/Pass

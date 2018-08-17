@@ -39,9 +39,9 @@ articles in the form of a blogpost layout.
 ## Technology
 
 ### Major tech used:
-- [Django](https://www.djangoproject.com/)
+- [Django 2.0](https://www.djangoproject.com/)
   - The main framework and driving force behind Herculean
-- [Bootstrap](https://getbootstrap.com/)
+- [Bootstrap 3](https://getbootstrap.com/)
   - I use a lot of custom CSS too, but Bootstrap makes life easier
 - [jQuery](https://jquery.com/)
   - Minor scripting required on the site, mostly done using jQuery
@@ -53,10 +53,6 @@ articles in the form of a blogpost layout.
   - Provides the default avatar for those too bashful to upload a picture
 - [Amazon Web Services](https://aws.amazon.com/)
   - AWS hosts the static and media files using [S3](https://aws.amazon.com/s3/)
-
-### Testing
-
-Testing is done using Django/Python. Some manual testing has also been done for variation.
 
 ## Acknowledgements
 
