@@ -7,6 +7,9 @@ env:
   global:
     - BUILD_ON_TRAVIS=true
 
+before_install:
+  - mysql -e 'CREATE DATABASE herculean_test;'
+
 install: pip install -r requirements.txt
 
 script:
