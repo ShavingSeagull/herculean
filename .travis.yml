@@ -4,7 +4,6 @@ python:
 - "3.6"
 
 env:
-  - DJANGO=2.0
   global:
     - BUILD_ON_TRAVIS=true
 
