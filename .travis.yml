@@ -3,17 +3,13 @@ language: python
 python:
 - "3.6"
 
-services:
-  - mysql
-
 env:
   global:
     - BUILD_ON_TRAVIS=true
 
 install: pip install -r requirements.txt
 
-before_script:
-  - mysql -e 'CREATE DATABASE herculean_test;'
-
 script:
+- python manage.py makemigrations
+- python manage.py migrate
 - python manage.py test
