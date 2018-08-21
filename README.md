@@ -53,6 +53,11 @@ articles in the form of a blogpost layout.
   - Provides the default avatar for those too bashful to upload a picture
 - [Amazon Web Services](https://aws.amazon.com/)
   - AWS hosts the static and media files using [S3](https://aws.amazon.com/s3/)
+  
+### Testing
+
+Testing is done using the Django testing framework, continuously integrated by Travis.
+There is also an extensive list of manual tests, which are included in the TDD folder in the repo.
 
 ## Acknowledgements
 
