@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.conf import settings
 from home.views import index, about, delivery_info, club_herculean
 from contact import urls as contact_urls
 from accounts import urls as accounts_urls
